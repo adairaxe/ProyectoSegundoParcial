@@ -23,6 +23,7 @@ public class Inscripcion {
     private ArrayList<Evaluacion> evaluacion;
 
     
+    // Los Id deben ser automaticos 
     public Inscripcion(int id, LocalDate fecha_inscripcion, double valor, int idMascota,int idConcurso ) {
         this.id = id;
         this.fecha_inscripcion = fecha_inscripcion;

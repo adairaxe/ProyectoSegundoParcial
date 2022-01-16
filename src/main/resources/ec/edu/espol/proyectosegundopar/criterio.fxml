@@ -11,7 +11,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="30.0" text="Inscripción" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="30.0" text="TEXTO" BorderPane.alignment="CENTER">
          <font>
             <Font name="Dubai Light" size="24.0" />
          </font>
@@ -21,30 +21,23 @@
       </Label>
    </top>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="606.0" spacing="425.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="425.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Regresar">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Inscribir">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin></Button>
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
          </children>
       </HBox>
    </bottom>
    <left>
       <VBox alignment="CENTER" prefHeight="235.0" prefWidth="177.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Nombre de su mascota:">
+            <Label text="TEXTO 1">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label text="Nombre del concurso:" />
-            <Label text="Fecha de inscripción:" />
-            <Label text="Total a pagar:" />
+            <Label text="TEXTO 2 " />
+            <Label text="TEXTO 3" />
          </children>
          <BorderPane.margin>
             <Insets left="20.0" />
@@ -52,11 +45,10 @@
       </VBox>
    </left>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="32.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="38.0" BorderPane.alignment="CENTER">
          <children>
             <TextField />
             <TextField />
-            <TextField text="YYYY-MM-DD" />
             <TextField />
          </children>
          <BorderPane.margin>
