@@ -75,7 +75,7 @@ public class Duen extends Persona{
         ArrayList<Duen> lista_duenos = Duen.readFile("dueños.txt");
         int id_dueno = lista_duenos.size()+1;
         Persona persona = Persona.nextPersona(sc);
-        System.out.println("Ingrese la dirreccion del Dueño: ");
+        System.out.println("Ingrese la direccion del Dueño: ");
         String direccion = sc.next();
         Duen persona_duen = new Duen(id_dueno, persona.nombres, persona.apellidos, persona.telefono, persona.email, direccion);    
         persona_duen.saveFile("dueños.txt");
