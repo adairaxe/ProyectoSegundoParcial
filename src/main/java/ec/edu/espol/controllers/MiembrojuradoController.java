@@ -7,7 +7,9 @@ package ec.edu.espol.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -19,7 +21,10 @@ public class MiembrojuradoController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    @FXML
+    private Button btnRegresar;
     @Override
+    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    

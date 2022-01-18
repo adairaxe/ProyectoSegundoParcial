@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosegundopar.MascotaController">
    <top>
       <Label prefHeight="60.0" prefWidth="65.0" text="Mascotas" BorderPane.alignment="CENTER">
          <font>
@@ -28,13 +28,18 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField prefHeight="51.0" prefWidth="466.0" />
-            <TextField prefHeight="69.0" prefWidth="466.0" />
-            <TextField prefHeight="78.0" prefWidth="466.0" />
-            <TextField />
+            <TextField fx:id="textNombre" prefHeight="51.0" prefWidth="466.0" />
+            <TextField fx:id="textRaza" prefHeight="69.0" prefWidth="466.0" />
+            <TextField fx:id="textNacimiento" prefHeight="78.0" prefWidth="466.0" />
+            <TextField fx:id="textTipo" />
+            <Button fx:id="btnSubir" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #fff0f0;" text="Subir imagen">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
          </children></VBox>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" text="Regresar" BorderPane.alignment="CENTER" />
+      <Button fx:id="btnRegresar" mnemonicParsing="false" text="Regresar" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>
