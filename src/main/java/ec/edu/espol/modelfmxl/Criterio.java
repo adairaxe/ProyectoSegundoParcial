@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
-
+///cambio
 public class Criterio {
     private int id;
     private String nombre;
