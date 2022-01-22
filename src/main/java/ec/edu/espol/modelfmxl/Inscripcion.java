@@ -192,7 +192,9 @@ public class Inscripcion {
             do{
                 System.out.println("Ingrese el valor total de la inscripcion: ");
                 valor = sc.nextDouble();
-            }while(valor!=Util.idConcurso(id_concurso));
+                
+                //cambio nombre de función idConcurso
+            }while(valor!=Util.exminarCostoConcurso(id_concurso));
             
             Inscripcion inscripcion_completa = new Inscripcion(id, fecha_inscripcion, valor,id_mascota, id_concurso);
             inscripcion_completa.saveFile("inscripciones.txt");

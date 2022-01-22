@@ -5,4 +5,9 @@ module ec.edu.espol.proyectosegundopar {
 
     opens ec.edu.espol.proyectosegundopar to javafx.fxml;
     exports ec.edu.espol.proyectosegundopar;
+    opens ec.edu.espol.controllers to javafx.fxml;
+    exports ec.edu.espol.controllers;
+    opens ec.edu.espol.modelfmxl to javafx.fxml;
+    exports ec.edu.espol.modelfmxl;
+   
 }

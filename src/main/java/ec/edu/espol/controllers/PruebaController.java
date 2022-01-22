@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author 59399
+ * @author USER
  */
-public class DuenoController implements Initializable {
+public class PruebaController implements Initializable {
 
     /**
      * Initializes the controller class.
