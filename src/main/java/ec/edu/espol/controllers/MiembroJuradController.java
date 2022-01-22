@@ -10,21 +10,32 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
  * @author 59399
  */
-public class MiembrojuradoController implements Initializable {
+public class MiembroJuradController implements Initializable {
+
+    @FXML
+    private Button btnRegresar;
+    @FXML
+    private TextField textNombre;
+    @FXML
+    private TextField textApellido;
+    @FXML
+    private TextField textTelefono;
+    @FXML
+    private TextField TextEmail;
+    @FXML
+    private TextField textDescripcion;
 
     /**
      * Initializes the controller class.
      */
-    @FXML
-    private Button btnRegresar;
     @Override
-    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    

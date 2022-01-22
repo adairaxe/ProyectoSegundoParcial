@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -24,7 +25,15 @@ public class MascotaController implements Initializable {
     @FXML
     private Button btnRegresar;
     @FXML
-    private Button btnSubir;
+    private TextField textNombre;
+    @FXML
+    private TextField textRaza;
+    @FXML
+    private TextField textFecha;
+    @FXML
+    private TextField textTipo;
+    @FXML
+    private Button subirFoto;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
