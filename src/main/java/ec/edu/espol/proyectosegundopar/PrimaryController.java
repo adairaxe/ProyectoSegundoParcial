@@ -91,7 +91,7 @@ public class PrimaryController implements Initializable {
             
         try {
             
-            FXMLLoader loader = App.loadFXML("prueba"); 
+            FXMLLoader loader = App.loadFXML("inscripcion"); 
             Scene scdueno = new Scene(loader.load(),600,400);
             Stage stgdueno = new Stage();
             stgdueno.setScene(scdueno);

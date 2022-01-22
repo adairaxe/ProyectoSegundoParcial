@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <BorderPane fx:id="bproot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosegundopar.MascotaController">
+=======
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.MascotaController">
+>>>>>>> d3b146ba984b19116aee9502f75314c585912069
    <top>
-      <Label prefHeight="60.0" prefWidth="65.0" text="Mascotas" BorderPane.alignment="CENTER">
+      <Label prefHeight="60.0" prefWidth="65.0" text="Mascota" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
@@ -20,8 +25,8 @@
          <children>
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="134.0" text="Nombre" />
             <Label alignment="CENTER" prefHeight="72.0" prefWidth="133.0" text="Raza" />
-            <Label alignment="CENTER" prefHeight="72.0" prefWidth="157.0" text="Fecha de nacimiento" />
-            <Label alignment="CENTER" prefHeight="72.0" prefWidth="157.0" text="Tipo de mascota" />
+            <Label alignment="CENTER" prefHeight="72.0" prefWidth="157.0" text="Fecha" />
+            <Label alignment="CENTER" prefHeight="72.0" prefWidth="157.0" text="Tipo" />
          </children>
       </VBox>
    </left>
@@ -30,13 +35,9 @@
          <children>
             <TextField fx:id="textNombre" prefHeight="51.0" prefWidth="466.0" />
             <TextField fx:id="textRaza" prefHeight="69.0" prefWidth="466.0" />
-            <TextField fx:id="textNacimiento" prefHeight="78.0" prefWidth="466.0" />
-            <TextField fx:id="textTipo" />
-            <Button fx:id="btnSubir" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #fff0f0;" text="Subir imagen">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Button>
+            <TextField fx:id="textFecha" prefHeight="78.0" prefWidth="466.0" />
+            <TextField fx:id="textTipo" prefHeight="72.0" prefWidth="466.0" />
+            <Button fx:id="subirFoto" mnemonicParsing="false" text="Subir Foto" />
          </children></VBox>
    </center>
    <bottom>
