@@ -97,20 +97,20 @@ public class Duen extends Persona{
         try{
             FileWriter writer= new FileWriter(ruta, true);
             BufferedWriter bufferedWriter= new BufferedWriter(writer);
-            bufferedWriter.write(this.getId());
+            bufferedWriter.write((String.valueOf(this.getId())));
             bufferedWriter.write("|");
-            bufferedWriter.write(this.getNombres());
+            bufferedWriter.write((String.valueOf(this.getNombres())));
             bufferedWriter.write("|");
-            bufferedWriter.write(this.getApellidos());
+            bufferedWriter.write((String.valueOf(this.getApellidos())));
             bufferedWriter.write("|");
-            bufferedWriter.write(this.getTelefono());
+            bufferedWriter.write((String.valueOf(this.getTelefono())));
             bufferedWriter.write("|");
-            bufferedWriter.write( this.getEmail());
+            bufferedWriter.write((String.valueOf( this.getEmail())));
             bufferedWriter.write("|");
-            bufferedWriter.write( this.getDireccion());
-            bufferedWriter.write("|");
+            bufferedWriter.write((String.valueOf(this.getDireccion())));
+            //bufferedWriter.write("|");
             for (Mascota m: this.getMascotas()){
-                bufferedWriter.write( this.getId());
+                bufferedWriter.write((String.valueOf( this.getId())));
                 bufferedWriter.write(";");
             }
             bufferedWriter.newLine();
@@ -127,20 +127,20 @@ public class Duen extends Persona{
             FileWriter writer= new FileWriter(nombre);
             BufferedWriter bufferedWriter= new BufferedWriter(writer);
             for (Duen v:dueño){
-                bufferedWriter.write(v.getId());
+                bufferedWriter.write((String.valueOf(v.getId())));
                 bufferedWriter.write("|");
-                bufferedWriter.write(v.getNombres());
+                bufferedWriter.write((String.valueOf(v.getNombres())));
                 bufferedWriter.write("|");
-                bufferedWriter.write(v.getApellidos());
+                bufferedWriter.write((String.valueOf(v.getApellidos())));
                 bufferedWriter.write("|");
-                bufferedWriter.write(v.getTelefono());
+                bufferedWriter.write((String.valueOf(v.getTelefono())));
                 bufferedWriter.write("|");
-                bufferedWriter.write( v.getEmail());
+                bufferedWriter.write((String.valueOf( v.getEmail())));
                 bufferedWriter.write("|");
-                bufferedWriter.write( v.getDireccion());
-                bufferedWriter.write("|");
+                bufferedWriter.write( (String.valueOf(v.getDireccion())));
+                //bufferedWriter.write("|");
                 for (Mascota m: v.getMascotas()){
-                    bufferedWriter.write( m.getId());
+                    bufferedWriter.write((String.valueOf( m.getId())));
                     bufferedWriter.write(";");
                 }
                 

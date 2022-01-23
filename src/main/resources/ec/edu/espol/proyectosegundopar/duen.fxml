@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -37,6 +38,12 @@
          </children></VBox>
    </center>
    <bottom>
-      <Button fx:id="btnRegresar" mnemonicParsing="false" text="Regresar" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="35.0" prefWidth="288.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnRegresar" mnemonicParsing="false" onMouseClicked="#regresar" text="Regresar" />
+            <Label prefHeight="17.0" prefWidth="288.0" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onMouseClicked="#guardando" prefHeight="25.0" prefWidth="72.0" text="Guardar" />
+         </children>
+      </HBox>
    </bottom>
 </BorderPane>

@@ -52,7 +52,7 @@ public class PrimaryController implements Initializable {
             
         try {
             
-            FXMLLoader loader = App.loadFXML("dueno"); 
+            FXMLLoader loader = App.loadFXML("duen"); 
             Scene scdueno = new Scene(loader.load(),600,400);
             Stage stgdueno = new Stage();
             stgdueno.setScene(scdueno);
