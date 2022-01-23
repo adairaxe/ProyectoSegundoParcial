@@ -17,10 +17,10 @@ import javafx.scene.control.TextField;
  *
  * @author USER
  */
-<<<<<<< HEAD:src/main/java/ec/edu/espol/controllers/PruebaController.java
+//<<<<<<< HEAD:src/main/java/ec/edu/espol/controllers/PruebaController.java
 public class PruebaController implements Initializable {
-=======
-public class MiembroJuradController implements Initializable {
+//=======
+//public class MiembroJuradController implements Initializable {
 
     @FXML
     private Button btnRegresar;
@@ -34,7 +34,7 @@ public class MiembroJuradController implements Initializable {
     private TextField TextEmail;
     @FXML
     private TextField textDescripcion;
->>>>>>> d3b146ba984b19116aee9502f75314c585912069:src/main/java/ec/edu/espol/controllers/MiembroJuradController.java
+//>>>>>>> d3b146ba984b19116aee9502f75314c585912069:src/main/java/ec/edu/espol/controllers/MiembroJuradController.java
 
     /**
      * Initializes the controller class.
