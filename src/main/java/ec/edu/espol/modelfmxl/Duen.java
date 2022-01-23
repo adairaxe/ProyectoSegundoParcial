@@ -1,8 +1,12 @@
 package ec.edu.espol.modelfmxl;
 
 import ec.edu.espol.modelfmxl.Persona;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -83,47 +87,94 @@ public class Duen extends Persona{
         
         
     }
-    public void saveFile(String file){
-        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(file),true)))
-        {
-            pw.println(this.getId() + "|"+ this.getNombres()+ "|" + this.getApellidos() + "|"+ this.getTelefono()+ "|" 
-                    + this.getEmail()+ "|"+ this.getDireccion() + "|");
+    
+    
+    
+    /////
+    ////     Edite SaveFile,Read. si no corre revisar :c
+    /////
+    public void saveFile(String ruta){
+        try{
+            FileWriter writer= new FileWriter(ruta, true);
+            BufferedWriter bufferedWriter= new BufferedWriter(writer);
+            bufferedWriter.write(this.getId());
+            bufferedWriter.write("|");
+            bufferedWriter.write(this.getNombres());
+            bufferedWriter.write("|");
+            bufferedWriter.write(this.getApellidos());
+            bufferedWriter.write("|");
+            bufferedWriter.write(this.getTelefono());
+            bufferedWriter.write("|");
+            bufferedWriter.write( this.getEmail());
+            bufferedWriter.write("|");
+            bufferedWriter.write( this.getDireccion());
+            bufferedWriter.write("|");
             for (Mascota m: this.getMascotas()){
-                pw.println(m.getId() + ";");
+                bufferedWriter.write( this.getId());
+                bufferedWriter.write(";");
             }
+            bufferedWriter.newLine();
+            bufferedWriter.close();
         } catch(Exception e) {
-            //System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
     
     
     public static void  saveFile( ArrayList<Duen> dueño , String nombre){
         //en modo append
-        try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File(nombre),true))){
-            for (Duen v:  dueño ){
-                pw.println(v.getId() + "|"+ v.getNombres()+ "|" + v.getApellidos() + "|"+ v.getTelefono()+ "|"
-                    + v.getEmail()+ "|"+ v.getDireccion()+ "|");
+        try{
+            FileWriter writer= new FileWriter(nombre);
+            BufferedWriter bufferedWriter= new BufferedWriter(writer);
+            for (Duen v:dueño){
+                bufferedWriter.write(v.getId());
+                bufferedWriter.write("|");
+                bufferedWriter.write(v.getNombres());
+                bufferedWriter.write("|");
+                bufferedWriter.write(v.getApellidos());
+                bufferedWriter.write("|");
+                bufferedWriter.write(v.getTelefono());
+                bufferedWriter.write("|");
+                bufferedWriter.write( v.getEmail());
+                bufferedWriter.write("|");
+                bufferedWriter.write( v.getDireccion());
+                bufferedWriter.write("|");
                 for (Mascota m: v.getMascotas()){
-                    pw.println(m.getId() + ";");
+                    bufferedWriter.write( m.getId());
+                    bufferedWriter.write(";");
                 }
+                
+                bufferedWriter.newLine();
             }
-            
+//            for (Duen v:  dueño ){
+//                pw.println(v.getId() + "|"+ v.getNombres()+ "|" + v.getApellidos() + "|"+ v.getTelefono()+ "|"
+//                    + v.getEmail()+ "|"+ v.getDireccion()+ "|");
+//                for (Mascota m: v.getMascotas()){
+//                    pw.println(m.getId() + ";");
+//                }
+//            }
+            bufferedWriter.close();
         }catch(Exception e){
-            //System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     
     public static ArrayList<Duen> readFile(String nombre){
         ArrayList<Duen> dueño= new ArrayList<>();
-        try (Scanner sc =new Scanner(new File (nombre))){
-            while(sc.hasNextLine()){
-                String linea= sc.nextLine();
-                String[] datos = linea.split("\\|"); 
-                Duen v= new Duen(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5]);
-                dueño.add(v);
+        try {
+            FileReader reader = new FileReader(nombre);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] datos = line.split("\\|"); 
+                String[] datos2 = datos[1].split(";");
+                Duen duen= new Duen(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5]);
+                dueño.add(duen);
             }
+            reader.close();
         }catch (Exception e){
+            e.printStackTrace();
             //System.out.println("Se ha creado el archivo: " + nombre);
         }
         return dueño;
