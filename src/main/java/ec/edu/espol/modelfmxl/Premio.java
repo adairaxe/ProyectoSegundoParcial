@@ -1,7 +1,10 @@
 package ec.edu.espol.modelfmxl;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -83,24 +86,52 @@ public class Premio {
     
     
     public void  saveFile(String nomfile){
+        /*
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
         {
             pw.println(this.id + "|"+ this.lugar+ "|" + this.descripcion + "|"+ this.idConcurso);
         } catch(Exception e) {
             //System.out.println(e.getMessage());
             
-        }
+        }*/
+        try 
+           (
+            FileWriter writer = new FileWriter(nomfile, true);
+            BufferedWriter  bw  = new BufferedWriter (writer);   
+            )    
+            {
+            bw.write(this.id + "|"+ this.lugar+ "|" + this.descripcion + "|"+ this.idConcurso);
+         
+            bw.newLine();
+       }catch (IOException e){
+           System.out.println(e.getMessage());;
+       }
     }
     
     
     public static void saveFile(ArrayList<Premio> premios, String nomfile){
+        /*
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile))))
         {
            for( Premio p: premios)
                pw.println(p.getId() + "|"+ p.getLugar() + "|" + p.getDescripcion() + "|"+ p.getIdConcurso()); 
         } catch(Exception e) {
             //System.out.println(e.getMessage());
+        }*/
+        try(
+                FileWriter writer = new FileWriter(nomfile, true);
+                BufferedWriter  bw  = new BufferedWriter (writer);   
+            ) 
+            {
+            for (Premio p : premios)
+            {
+                bw.write(p.getId() + "|"+ p.getLugar() + "|" + p.getDescripcion() + "|"+ p.getIdConcurso());
+                bw.newLine();
+            }
         }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }  
     }
     
     
