@@ -91,10 +91,12 @@ public class DuenController implements Initializable {
             
             
             if (nombre!=null ||apellido!=null||telefono!=null||email!=null||direccion!=null
-                   || nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){
-//                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){
+                   ){
+//                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){|| nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""
+                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){
                     Duen persona_duen = new Duen(id_dueno, nombre, apellido, telefono, email, direccion);    
-                persona_duen.saveFile("dueños.txt");
+                    persona_duen.saveFile("dueños.txt");
+                }
 //                }
                 
             }else{

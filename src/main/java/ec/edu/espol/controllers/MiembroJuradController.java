@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -35,6 +36,8 @@ public class MiembroJuradController implements Initializable {
     @FXML
     private TextField textDescripcion;
 //>>>>>>> d3b146ba984b19116aee9502f75314c585912069:src/main/java/ec/edu/espol/controllers/MiembroJuradController.java
+    @FXML
+    private Button btnguardar;
 
     /**
      * Initializes the controller class.
@@ -43,5 +46,13 @@ public class MiembroJuradController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void regresar(MouseEvent event) {
+    }
+
+    @FXML
+    private void guardando(MouseEvent event) {
+    }
     
 }
