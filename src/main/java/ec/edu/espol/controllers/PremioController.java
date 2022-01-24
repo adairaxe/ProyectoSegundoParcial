@@ -18,11 +18,8 @@ import javafx.scene.input.MouseEvent;
  *
  * @author angel
  */
-public class ConcursoController implements Initializable {
+public class PremioController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
     @FXML
     private Button btnRegresar;
     @FXML
@@ -30,18 +27,13 @@ public class ConcursoController implements Initializable {
     @FXML
     private Button btnLimpiar;
     @FXML
-    private TextField txNombre;
+    private TextField txLugar;
     @FXML
-    private TextField txFecha;
-    @FXML
-    private TextField txFechaIns;
-    @FXML
-    private TextField txFechaCierre;
-    @FXML
-    private TextField txTema;
-    @FXML
-    private TextField txCosto;
-    
+    private TextField txDescripcion;
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

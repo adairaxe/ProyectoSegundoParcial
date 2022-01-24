@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.ConcursoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.PremioController">
    <top>
-      <Label text="Concurso" BorderPane.alignment="BOTTOM_CENTER">
+      <Label text="Premio" BorderPane.alignment="BOTTOM_CENTER">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -23,16 +23,12 @@
    <left>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="168.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" text="Nombre:">
+            <Label alignment="CENTER" text="Lugar:">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Label text="Fecha:" />
-            <Label text="Fecha de inscripción:" />
-            <Label text="Fecha cierre de inscripción:" />
-            <Label text="Temática:" />
-            <Label text="Costo:" />
+            <Label text="Descripción:" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -42,12 +38,8 @@
    <center>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txNombre" />
-            <TextField fx:id="txFecha" />
-            <TextField fx:id="txFechaIns" />
-            <TextField fx:id="txFechaCierre" />
-            <TextField fx:id="txTema" />
-            <TextField fx:id="txCosto" />
+            <TextField fx:id="txLugar" />
+            <TextField fx:id="txDescripcion" />
          </children>
       </VBox>
    </center>
