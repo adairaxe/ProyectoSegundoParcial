@@ -72,7 +72,7 @@ public class Util {
         
         System.out.println("Ingrese un email de dueño existente: ");
         String email = sc.next();
-        ArrayList<Duen> dueños = Duen.readFile("dueños.txt");
+        ArrayList<Duen> dueños = Duen.readFile("duenos.txt");
         for (Duen d: dueños){
             if (email.equals(d.getEmail())){
                

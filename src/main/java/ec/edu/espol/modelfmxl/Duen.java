@@ -76,13 +76,13 @@ public class Duen extends Persona{
     }
     
     public static Duen nextDueño(Scanner sc){   
-        ArrayList<Duen> lista_duenos = Duen.readFile("dueños.txt");
+        ArrayList<Duen> lista_duenos = Duen.readFile("duenos.txt");
         int id_dueno = lista_duenos.size()+1;
         Persona persona = Persona.nextPersona(sc);
         System.out.println("Ingrese la direccion del Dueño: ");
         String direccion = sc.next();
         Duen persona_duen = new Duen(id_dueno, persona.nombres, persona.apellidos, persona.telefono, persona.email, direccion);    
-        persona_duen.saveFile("dueños.txt");
+        persona_duen.saveFile("duenos.txt");
         return persona_duen;
         
         
@@ -193,8 +193,8 @@ public class Duen extends Persona{
     }
     
     public static void ArchivoMascotasDueño(){
-        ArrayList<Duen> dueño= Duen.readFile("dueños.txt");
-        try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File("dueños.txt")))){
+        ArrayList<Duen> dueño= Duen.readFile("duenos.txt");
+        try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File("duenos.txt")))){
             for (Duen v: dueño){
             //Mascota.saveFile(Duen.GenerarListMascotasDueño("mascotas.txt", d.getId()),"mascotasDueño");
                 String cadena="";

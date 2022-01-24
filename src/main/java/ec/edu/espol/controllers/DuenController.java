@@ -72,7 +72,7 @@ public class DuenController implements Initializable {
 
     @FXML
     private void guardando(MouseEvent event) {
-        ArrayList<Duen> lista_duenos = Duen.readFile("dueños.txt");
+        ArrayList<Duen> lista_duenos = Duen.readFile("duenos.txt");
         int id_dueno = lista_duenos.size()+1;
         try{
             String nombre= textNombre.getText();
@@ -95,8 +95,14 @@ public class DuenController implements Initializable {
 //                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){|| nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""
                 if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){
                     Duen persona_duen = new Duen(id_dueno, nombre, apellido, telefono, email, direccion);    
-                    persona_duen.saveFile("dueños.txt");
+                    persona_duen.saveFile("duenos.txt");
                 }
+//                else{
+//                    Alert a3= new Alert(AlertType.ERROR, "Ingreso de campos vacios" );
+//                    a3.show();
+//                } 
+                        
+                        
 //                }
                 
             }else{
