@@ -1,7 +1,9 @@
 package ec.edu.espol.modelfmxl;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -133,6 +135,7 @@ public class Premio {
     
     
     public static ArrayList<Premio> readFromFile(String nomfile){
+        /*
         ArrayList<Premio> premios = new ArrayList<>();
         try (Scanner sc = new Scanner(new File(nomfile)))
         {
@@ -149,6 +152,25 @@ public class Premio {
         }catch(Exception e) {
             //System.out.println("Se ha creado el archivo: "+ nomfile);
             
+        }*/
+        ArrayList<Premio> premios= new ArrayList<>();
+        try (
+            FileReader reader = new FileReader(nomfile);
+            BufferedReader br = new BufferedReader(reader);
+            )
+        {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] tokens = line.split("\\|"); 
+                //String[] datos2 = datos[1].split(",");
+                // linea = id|nombre|fecha|fechaInscripcion|fechaCierreInscripcion|tematica|costo
+                // int id,String nombre,LocalDate fecha,LocalDate fechaInscripcion,LocalDate fechaCierreInscripcion,String tematica, double costo
+                Premio p= new Premio(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]),tokens[2],Integer.parseInt(tokens[3]));
+                premios.add(p);
+            }
+            reader.close();
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return premios;
     
