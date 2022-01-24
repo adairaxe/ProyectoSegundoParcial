@@ -1,8 +1,11 @@
 
 package ec.edu.espol.modelfmxl;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -131,15 +134,31 @@ public class Concurso {
     }
       
      public void  saveFile(String nomfile){
-        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
+        /*
+         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
         {
             pw.println(this.id + "|"+ this.nombre+ "|" + this.fecha + "|"+ this.fechaInscripcion+ "|"+ this.fechaCierreInscripcion+ "|"+ this.tematica+ "|"+ this.costo);
         } catch(Exception e) {
             //System.out.println(e.getMessage());
             
         }
+        */
+         try 
+           (
+            FileWriter writer = new FileWriter(nomfile, true);
+            BufferedWriter  bw  = new BufferedWriter (writer);   
+            )    
+            {
+            bw.write(this.id + "|"+ this.nombre+ "|" + this.fecha + "|"+ this.fechaInscripcion+ "|"+ this.fechaCierreInscripcion+ "|"+ this.tematica+ "|"+ this.costo);
+         
+            bw.newLine();
+       }catch (IOException e){
+           System.out.println(e.getMessage());;
+       }
+        
     }
     public static void saveFile(ArrayList<Concurso> concursos, String nomfile){
+        /*
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile))))
         {
            for( Concurso c: concursos)
@@ -147,7 +166,21 @@ public class Concurso {
         } catch(Exception e) {
             //System.out.println(e.getMessage());
             
+        }*/
+        try(
+                FileWriter writer = new FileWriter(nomfile, true);
+                BufferedWriter  bw  = new BufferedWriter (writer);   
+            ) 
+            {
+            for (Concurso c : concursos)
+            {
+                bw.write(c.id + "|"+ c.nombre+ "|" + c.fecha + "|"+ c.fechaInscripcion + "|"+ c.fechaCierreInscripcion+ "|"+ c.tematica+ "|"+ c.costo);
+                bw.newLine();
+            }
         }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }  
     }
     
     public static ArrayList<Concurso> readFromFile(String nomfile){
@@ -203,18 +236,18 @@ public class Concurso {
         
     }
     
-    
-        public static ArrayList<Premio>  GenerarListPremiosConcurso(String nombre,int id){
-        ArrayList<Premio> premios2=new ArrayList<>();
-        ArrayList<Premio> premios= Premio.readFromFile(nombre);
-        
-        for (Premio m: premios){
-            
-                if (m.getIdConcurso()==id){
-                    premios2.add(m);
-                }
-        }
-        return premios2;
+
+    public static ArrayList<Premio>  GenerarListPremiosConcurso(String nombre,int id){
+    ArrayList<Premio> premios2=new ArrayList<>();
+    ArrayList<Premio> premios= Premio.readFromFile(nombre);
+
+    for (Premio m: premios){
+
+            if (m.getIdConcurso()==id){
+                premios2.add(m);
+            }
+    }
+    return premios2;
     }
     public static ArrayList<Criterio>  GenerarListCriterioConcurso(String nombre,int id){
         ArrayList<Criterio> criterios2=new ArrayList<>();
@@ -229,24 +262,25 @@ public class Concurso {
         return criterios2;
     }
     
-        public static ArrayList<Inscripcion>  GenerarListInscripcionesConcurso(String nombre,int id){
-        ArrayList<Inscripcion> inscripciones2=new ArrayList<>();
-        ArrayList<Inscripcion> inscripciones= Inscripcion.readFile(nombre);
-        
-        for (Inscripcion m: inscripciones){
-            
-                if (m.getIdConcurso()==id){
-                    inscripciones2.add(m);
-                }
-        }
-        return inscripciones2;
+    public static ArrayList<Inscripcion>  GenerarListInscripcionesConcurso(String nombre,int id){
+    ArrayList<Inscripcion> inscripciones2=new ArrayList<>();
+    ArrayList<Inscripcion> inscripciones= Inscripcion.readFile(nombre);
+
+    for (Inscripcion m: inscripciones){
+
+            if (m.getIdConcurso()==id){
+                inscripciones2.add(m);
+            }
     }
-        public static void ArchivoListasDueño(){
-        //ArrayList<Inscripcion> inscripciones1= Inscripcion.readFile("inscripciones.txt");
-        ArrayList<Concurso> concurso= Concurso.readFromFile("concursos.txt");
-        // ArrayList<Criterio> criterio1= Criterio.readFromFile("criterios.txt");
-        //ArrayList<Premio> premios= Premio.readFromFile("premios.txt");
-        try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File("concursos.txt")))){
+    return inscripciones2;
+    }
+    public static void ArchivoListasDueño(){
+    //ArrayList<Inscripcion> inscripciones1= Inscripcion.readFile("inscripciones.txt");
+    ArrayList<Concurso> concurso= Concurso.readFromFile("concursos.txt");
+    // ArrayList<Criterio> criterio1= Criterio.readFromFile("criterios.txt");
+    //ArrayList<Premio> premios= Premio.readFromFile("premios.txt");
+        try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File("concursos.txt"))))
+        {
             for (Concurso v: concurso){
             //Mascota.saveFile(Duen.GenerarListMascotasDueño("mascotas.txt", d.getId()),"mascotasDueño");
                 String cadena1="";
@@ -261,11 +295,11 @@ public class Concurso {
                 for (Inscripcion m: Concurso.GenerarListInscripcionesConcurso("inscripciones.txt", v.getId())){
                     cadena3 = cadena3.concat(m.getId() + ";");
                 }
-                
+
                 pw.println(v.getId() + "|"+ v.getNombre()+ "|" + v.getFecha() + "|"+ v.getFechaInscripcion() +
                         "|"+ v.getFechaCierreInscripcion()+ "|"+ v.getTematica()+ "|"+ v.getCosto()+"|"+cadena1+"|"+cadena2+"|"+cadena3);
             } 
         }catch(Exception e){ System.out.println(e.getMessage());
-            }
+        }
     }       
 }
