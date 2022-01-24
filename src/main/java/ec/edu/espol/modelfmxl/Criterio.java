@@ -1,8 +1,11 @@
 package ec.edu.espol.modelfmxl;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -112,7 +115,8 @@ public class Criterio {
     }
     
     
-    public void saveFile (String criteriofield){
+    public void saveFile (String nomfile){
+        /*
        try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(criteriofield),true))){
            pw.println(this.id + "|"+ this.nombre+ "|" + this.descripcion + "|"+ this.punt_max+ "|"+ this.idConcurso+ "|");
             for (Evaluacion m: this.getEvaluaciones()){
@@ -120,10 +124,25 @@ public class Criterio {
             }
        }catch(Exception e){
            //System.out.println(e.getMessage());
-       }  
+       }  */
+        try 
+           (
+            FileWriter writer = new FileWriter(nomfile, true);
+            BufferedWriter  bw  = new BufferedWriter (writer);   
+            )    
+            {
+            bw.write(this.id + "|"+ this.nombre+ "|" + this.descripcion + "|"+ this.punt_max+ "|"+ this.idConcurso+ "|");
+            for (Evaluacion m: this.getEvaluaciones()){
+                bw.write(m.getId() + ";");
+           }
+             bw.newLine();
+       }catch (IOException e){
+           System.out.println(e.getMessage());
+       }
     }
 
-    public static void saveFile(ArrayList<Criterio> listacriterios, String criteriofield){
+    public static void saveFile(ArrayList<Criterio> listacriterios, String nomfile){
+        /*
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(criteriofield),true))){
             for (Criterio crit : listacriterios){
                 pw.println(crit.id + "|"+ crit.nombre+ "|" + crit.descripcion + "|"+ crit.punt_max + "|"+ crit.idConcurso);
@@ -135,7 +154,24 @@ public class Criterio {
         }
         catch(Exception e){
             //System.out.println(e.getMessage());
-        }       
+        }*/
+        try(
+                FileWriter writer = new FileWriter(nomfile, true);
+                BufferedWriter  bw  = new BufferedWriter (writer);   
+            ) 
+        {
+            for (Criterio crit : listacriterios)
+            {
+            bw.write(crit.id + "|"+ crit.nombre+ "|" + crit.descripcion + "|"+ crit.punt_max + "|"+ crit.idConcurso);
+                for (Evaluacion m: crit.getEvaluaciones()){
+                    bw.write(m.getId() + ";");
+                    bw.newLine();
+                }
+            } 
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        } 
     }
     
     public static ArrayList<Evaluacion>  GenerarListEvaluacionCriterio(String nombre,int id){
