@@ -1,9 +1,11 @@
 
 package ec.edu.espol.modelfmxl;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -181,6 +183,7 @@ public class Concurso {
     }
     
     public static ArrayList<Concurso> readFromFile(String nomfile){
+        /*
         ArrayList<Concurso> concursos = new ArrayList<>();
         try (Scanner sc = new Scanner(new File(nomfile)))
         {
@@ -197,6 +200,27 @@ public class Concurso {
         }catch(Exception e) {
             //System.out.println("Se ha creado el archivo: " + nomfile);
             
+        }
+        return concursos;
+        */
+        ArrayList<Concurso> concursos= new ArrayList<>();
+        try (
+            FileReader reader = new FileReader(nomfile);
+            BufferedReader br = new BufferedReader(reader);
+            )
+        {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] datos = line.split("\\|"); 
+                //String[] datos2 = datos[1].split(",");
+                // linea = id|nombre|fecha|fechaInscripcion|fechaCierreInscripcion|tematica|costo
+                // int id,String nombre,LocalDate fecha,LocalDate fechaInscripcion,LocalDate fechaCierreInscripcion,String tematica, double costo
+                Concurso v= new Concurso(Integer.parseInt(datos[0]),datos[1],LocalDate.parse(datos[2]),LocalDate.parse(datos[3]),LocalDate.parse(datos[4]),datos[5],Double.parseDouble(datos[6]));
+                concursos.add(v);
+            }
+            reader.close();
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return concursos;
     
@@ -272,10 +296,8 @@ public class Concurso {
     return inscripciones2;
     }
     public static void ArchivoListasDueño(){
-    //ArrayList<Inscripcion> inscripciones1= Inscripcion.readFile("inscripciones.txt");
+        /*
     ArrayList<Concurso> concurso= Concurso.readFromFile("concursos.txt");
-    // ArrayList<Criterio> criterio1= Criterio.readFromFile("criterios.txt");
-    //ArrayList<Premio> premios= Premio.readFromFile("premios.txt");
         try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File("concursos.txt"))))
         {
             for (Concurso v: concurso){
@@ -297,6 +319,34 @@ public class Concurso {
                         "|"+ v.getFechaCierreInscripcion()+ "|"+ v.getTematica()+ "|"+ v.getCosto()+"|"+cadena1+"|"+cadena2+"|"+cadena3);
             } 
         }catch(Exception e){ System.out.println(e.getMessage());
+        } ^*/ 
+        ArrayList<Concurso> concurso= Concurso.readFromFile("concursos.txt");
+        try(
+                FileWriter writer = new FileWriter("concursos.txt", true);
+                BufferedWriter  bw  = new BufferedWriter (writer);   
+            ) 
+        {
+            for (Concurso v: concurso){
+            //Mascota.saveFile(Duen.GenerarListMascotasDueño("mascotas.txt", d.getId()),"mascotasDueño");
+                String cadena1="";
+                String cadena2="";
+                String cadena3="";
+                for (Premio m: Concurso.GenerarListPremiosConcurso("premios.txt", v.getId())){
+                    cadena1 = cadena1.concat(m.getId() + ";");
+                }
+                for (Criterio m: Concurso.GenerarListCriterioConcurso("criterios.txt", v.getId())){
+                    cadena2 = cadena2.concat(m.getId() + ";");
+                }
+                for (Inscripcion m: Concurso.GenerarListInscripcionesConcurso("inscripciones.txt", v.getId())){
+                    cadena3 = cadena3.concat(m.getId() + ";");
+                }
+
+                bw.write(v.getId() + "|"+ v.getNombre()+ "|" + v.getFecha() + "|"+ v.getFechaInscripcion() +
+                        "|"+ v.getFechaCierreInscripcion()+ "|"+ v.getTematica()+ "|"+ v.getCosto()+"|"+cadena1+"|"+cadena2+"|"+cadena3);
+                bw.newLine();
+            } 
+        }catch(Exception e){ System.out.println(e.getMessage());
         }
-    }       
+        
+    }     
 }
