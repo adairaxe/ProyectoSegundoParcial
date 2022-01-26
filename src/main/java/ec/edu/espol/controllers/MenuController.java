@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -48,6 +49,8 @@ public class MenuController implements Initializable {
     private VBox vopcion1;
     @FXML
     private VBox vopcion2;
+    @FXML
+    private HBox hbopciones;
 
     /**
      * Initializes the controller class.
@@ -59,7 +62,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void concurso(MouseEvent event) throws IOException {
-        Stage stg = (Stage)vopcion1.getScene().getWindow();
+        Stage stg = (Stage)hbopciones.getScene().getWindow();
         stg.close();
         try {
             
@@ -79,7 +82,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void mascota(MouseEvent event) throws IOException {
-        Stage stg = (Stage)vopcion1.getScene().getWindow();
+        Stage stg = (Stage)hbopciones.getScene().getWindow();
         stg.close();
         try {
             
@@ -96,7 +99,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void dueno(MouseEvent event) throws IOException {
-        Stage stg = (Stage)vopcion1.getScene().getWindow();
+        Stage stg = (Stage)hbopciones.getScene().getWindow();
         stg.close();
         try {
             
@@ -113,7 +116,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void premio(MouseEvent event) throws IOException {
-        Stage stg = (Stage)vopcion1.getScene().getWindow();
+        Stage stg = (Stage)hbopciones.getScene().getWindow();
         stg.close();
         try {
             
@@ -136,7 +139,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void criterio(MouseEvent event) throws IOException {
-        Stage stg = (Stage)vopcion2.getScene().getWindow();
+        Stage stg = (Stage)hbopciones.getScene().getWindow();
         stg.close();
         try {
             
@@ -153,7 +156,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void inscripcion(MouseEvent event) throws IOException {
-        Stage stg = (Stage)vopcion2.getScene().getWindow();
+        Stage stg = (Stage)hbopciones.getScene().getWindow();
         stg.close();
         try {
             
@@ -170,7 +173,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void MiembroJurado(MouseEvent event) throws IOException {
-        Stage stg = (Stage)vopcion2.getScene().getWindow();
+        Stage stg = (Stage)hbopciones.getScene().getWindow();
         stg.close();
         try {
             
@@ -187,7 +190,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void evaluacion(MouseEvent event) throws IOException {
-        Stage stg = (Stage)vopcion2.getScene().getWindow();
+        Stage stg = (Stage)hbopciones.getScene().getWindow();
         stg.close();
         try {
             
