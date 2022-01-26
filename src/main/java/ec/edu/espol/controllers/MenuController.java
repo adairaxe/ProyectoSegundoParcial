@@ -177,7 +177,7 @@ public class MenuController implements Initializable {
         stg.close();
         try {
             
-            FXMLLoader loader = App.loadFXML("miembroJurad"); 
+            FXMLLoader loader = App.loadFXML("miembroJurado"); 
             Scene scdueno = new Scene(loader.load(),600,400);
             Stage stgdueno = new Stage();
             stgdueno.setScene(scdueno);
@@ -206,3 +206,4 @@ public class MenuController implements Initializable {
     }
     
 }
+ 

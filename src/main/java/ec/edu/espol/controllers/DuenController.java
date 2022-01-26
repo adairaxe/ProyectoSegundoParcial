@@ -122,6 +122,11 @@ public class DuenController implements Initializable {
 
     @FXML
     private void limpiar(MouseEvent event) {
+        textNombre.clear();
+        textApellido.clear();
+        textTelefono.clear();
+        txtEmail.clear();
+        textDireccion.clear();
     }
     
 }
