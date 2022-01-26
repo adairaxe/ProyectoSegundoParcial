@@ -62,73 +62,30 @@ public class MenuController implements Initializable {
 
     @FXML
     private void concurso(MouseEvent event) throws IOException {
-        Stage stg = (Stage)hbopciones.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("concurso"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-            
-        
-        
+        FXMLLoader loader = App.loadFXML("concurso");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
 
     @FXML
     private void mascota(MouseEvent event) throws IOException {
-        Stage stg = (Stage)hbopciones.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("mascota"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        FXMLLoader loader = App.loadFXML("mascota");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
 
     @FXML
     private void dueno(MouseEvent event) throws IOException {
-        Stage stg = (Stage)hbopciones.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("duen"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        FXMLLoader loader = App.loadFXML("duen");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
 
     @FXML
     private void premio(MouseEvent event) throws IOException {
-        Stage stg = (Stage)hbopciones.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("premio"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        FXMLLoader loader = App.loadFXML("premio");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
 
     @FXML
@@ -139,70 +96,30 @@ public class MenuController implements Initializable {
 
     @FXML
     private void criterio(MouseEvent event) throws IOException {
-        Stage stg = (Stage)hbopciones.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("criterio"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        FXMLLoader loader = App.loadFXML("criterio");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
 
     @FXML
     private void inscripcion(MouseEvent event) throws IOException {
-        Stage stg = (Stage)hbopciones.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("inscripcion"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        FXMLLoader loader = App.loadFXML("inscripcion");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
 
     @FXML
     private void MiembroJurado(MouseEvent event) throws IOException {
-        Stage stg = (Stage)hbopciones.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("miembroJurado"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        FXMLLoader loader = App.loadFXML("miembroJurado");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
 
     @FXML
     private void evaluacion(MouseEvent event) throws IOException {
-        Stage stg = (Stage)hbopciones.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("evaluacion"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        FXMLLoader loader = App.loadFXML("evaluacion");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
     
 }

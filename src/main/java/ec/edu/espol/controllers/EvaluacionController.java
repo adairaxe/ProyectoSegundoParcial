@@ -9,6 +9,7 @@ import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -26,20 +27,10 @@ public class EvaluacionController {
     private Button btnLimpiar;
 
     @FXML
-    private void regresar(MouseEvent event) {
-        Stage stg = (Stage)btnRegresar.getScene().getWindow();
-        stg.close();
-        try {
-            
-            FXMLLoader loader = App.loadFXML("menu"); 
-            Scene scdueno = new Scene(loader.load(),600,400);
-            Stage stgdueno = new Stage();
-            stgdueno.setScene(scdueno);
-            stgdueno.show();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    private void regresar(MouseEvent event) throws IOException {
+        FXMLLoader loader = App.loadFXML("menu");
+        Parent root= loader.load();
+        App.scene.setRoot(root);
     }
 
     @FXML
