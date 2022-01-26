@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.ConcursoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.ConcursoController">
    <top>
-      <Label text="Concurso" BorderPane.alignment="BOTTOM_CENTER">
+      <Label alignment="CENTER" prefHeight="30.0" prefWidth="100.0" text="Concurso" BorderPane.alignment="BOTTOM_CENTER">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -21,18 +21,18 @@
       </Label>
    </top>
    <left>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="168.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="168.0" spacing="17.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" text="Nombre:">
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Nombre:">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Label text="Fecha:" />
-            <Label text="Fecha de inscripción:" />
-            <Label text="Fecha cierre de inscripción:" />
-            <Label text="Temática:" />
-            <Label text="Costo:" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="156.0" text="Fecha:" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Fecha de inscripción:" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Fecha cierre de inscripción:" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Temática:" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Costo:" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -40,9 +40,9 @@
       </VBox>
    </left>
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txNombre" />
+            <TextField fx:id="txNombre" prefHeight="21.0" prefWidth="419.0" />
             <TextField fx:id="txFecha" />
             <TextField fx:id="txFechaIns" />
             <TextField fx:id="txFechaCierre" />

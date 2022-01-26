@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+/* 
+    Created on : 25 ene. 2022, 23:25:02
+    Author     : angel
+-fx-background-color:#F0FFFF
+*/
+.root
+{
+    -fx-background-image: url("1.jpg")
+      
+}
+.button
+{
+    -fx-background-color:cadetblue
+}
+
+.label
+{
+    -fx-background-color:floralwhite
+}
+
