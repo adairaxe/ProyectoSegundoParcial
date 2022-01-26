@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -31,6 +32,8 @@ public class CriterioController {
     private TextField txDescripcion;
     @FXML
     private TextField txPuntajeMax;
+    @FXML
+    private HBox btnLimpiar;
 
     @FXML
     private void regresar(MouseEvent event) {
@@ -51,6 +54,10 @@ public class CriterioController {
 
     @FXML
     private void guardar(MouseEvent event) {
+    }
+
+    @FXML
+    private void limpiar(MouseEvent event) {
     }
     
 }

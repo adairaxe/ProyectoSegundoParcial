@@ -16,15 +16,16 @@
             <Font name="System Bold" size="20.0" />
          </font>
          <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets top="30.0" />
          </BorderPane.margin>
       </Label>
    </top>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="425.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="200.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnRegresar" mnemonicParsing="false" onMouseClicked="#regresar" text="Regresar" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Guardar" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onMouseClicked="#limpiar" text="Limpiar" />
          </children>
       </HBox>
    </bottom>

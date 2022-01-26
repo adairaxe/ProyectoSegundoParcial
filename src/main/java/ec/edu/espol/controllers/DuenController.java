@@ -43,6 +43,8 @@ public class DuenController implements Initializable {
     private TextField textDireccion;
     @FXML
     private Button btnGuardar;
+    @FXML
+    private Button btnLimpiar;
 
     /**
      * Initializes the controller class.
@@ -59,7 +61,7 @@ public class DuenController implements Initializable {
             
         try {
             
-            FXMLLoader loader = App.loadFXML("primary"); 
+            FXMLLoader loader = App.loadFXML("menu"); 
             Scene scdueno = new Scene(loader.load(),600,400);
             Stage stgdueno = new Stage();
             stgdueno.setScene(scdueno);
@@ -116,6 +118,10 @@ public class DuenController implements Initializable {
         }
         
         
+    }
+
+    @FXML
+    private void limpiar(MouseEvent event) {
     }
     
 }

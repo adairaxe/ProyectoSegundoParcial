@@ -35,10 +35,13 @@ public class InscripcionController implements Initializable {
     private TextField txtNombreConcurso;
     @FXML
     private TextField txtFechaInscripcion;
-    @FXML
     private TextField txtTotalPagar;
     @FXML
     private Button btnRegresar;
+    @FXML
+    private Button btnLimpiar;
+    @FXML
+    private TextField txTotalPagar;
 
     /**
      * Initializes the controller class.
@@ -97,6 +100,10 @@ public class InscripcionController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    @FXML
+    private void limpiar(MouseEvent event) {
     }
 
     

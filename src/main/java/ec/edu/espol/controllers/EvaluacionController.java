@@ -22,6 +22,8 @@ public class EvaluacionController {
 
     @FXML
     private Button btnRegresar;
+    @FXML
+    private Button btnLimpiar;
 
     @FXML
     private void regresar(MouseEvent event) {
@@ -38,6 +40,10 @@ public class EvaluacionController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    @FXML
+    private void limpiar(MouseEvent event) {
     }
     
 }
