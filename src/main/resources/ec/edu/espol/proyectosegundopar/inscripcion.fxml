@@ -23,7 +23,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="606.0" spacing="425.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Button" />
+            <Button fx:id="btnRegresar" mnemonicParsing="false" onMouseClicked="#regresar" text="Regresar" />
             <Button mnemonicParsing="false" onMouseClicked="#guardarInscripcion" text="Guardar" />
          </children></HBox>
    </bottom>

@@ -14,7 +14,7 @@ import javafx.scene.control.Alert;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    public static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {

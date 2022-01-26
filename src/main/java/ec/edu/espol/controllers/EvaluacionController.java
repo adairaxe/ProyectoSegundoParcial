@@ -7,50 +7,21 @@ package ec.edu.espol.controllers;
 
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
  *
- * @author USER
+ * @author angel
  */
-//<<<<<<< HEAD:src/main/java/ec/edu/espol/controllers/PruebaController.java
-//public class PruebaController implements Initializable {
-//=======
-public class MiembroJuradController implements Initializable {
+public class EvaluacionController {
 
     @FXML
     private Button btnRegresar;
-    @FXML
-    private TextField textNombre;
-    @FXML
-    private TextField textApellido;
-    @FXML
-    private TextField textTelefono;
-    @FXML
-    private TextField TextEmail;
-    @FXML
-    private TextField textDescripcion;
-//>>>>>>> d3b146ba984b19116aee9502f75314c585912069:src/main/java/ec/edu/espol/controllers/MiembroJuradController.java
-    @FXML
-    private Button btnguardar;
-
-    /**
-     * Initializes the controller class.
-     */
-//    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
 
     @FXML
     private void regresar(MouseEvent event) {
@@ -67,10 +38,6 @@ public class MiembroJuradController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-
-    @FXML
-    private void guardando(MouseEvent event) {
     }
     
 }

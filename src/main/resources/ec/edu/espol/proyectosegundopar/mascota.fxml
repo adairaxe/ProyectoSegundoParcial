@@ -1,46 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<BorderPane fx:id="bproot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosegundopar.MascotaController">
-=======
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.MascotaController">
->>>>>>> d3b146ba984b19116aee9502f75314c585912069
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.MascotaController">
    <top>
-      <Label prefHeight="60.0" prefWidth="65.0" text="Mascota" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" prefHeight="30.0" prefWidth="79.0" text="Mascota" BorderPane.alignment="BOTTOM_CENTER">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
       </Label>
    </top>
    <left>
-      <VBox prefHeight="379.0" prefWidth="134.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="168.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="27.0" prefWidth="134.0" text="Nombre" />
-            <Label alignment="CENTER" prefHeight="72.0" prefWidth="133.0" text="Raza" />
-            <Label alignment="CENTER" prefHeight="72.0" prefWidth="157.0" text="Fecha" />
-            <Label alignment="CENTER" prefHeight="72.0" prefWidth="157.0" text="Tipo" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="144.0" text="Nombre:">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="143.0" text="Raza:" />
+            <Label alignment="CENTER" prefWidth="143.0" text="Tipo" />
+            <Label alignment="CENTER" prefWidth="143.0" text="Fecha de Nacimiento" />
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="textNombre" prefHeight="51.0" prefWidth="466.0" />
-            <TextField fx:id="textRaza" prefHeight="69.0" prefWidth="466.0" />
-            <TextField fx:id="textFecha" prefHeight="78.0" prefWidth="466.0" />
-            <TextField fx:id="textTipo" prefHeight="72.0" prefWidth="466.0" />
-            <Button fx:id="subirFoto" mnemonicParsing="false" text="Subir Foto" />
-         </children></VBox>
+            <TextField fx:id="txNombre" />
+            <TextField fx:id="txRaza" />
+            <TextField fx:id="txTipo" />
+            <TextField fx:id="txFechaNacimeinto" />
+         </children>
+      </VBox>
    </center>
    <bottom>
-      <Button fx:id="btnRegresar" mnemonicParsing="false" text="Regresar" BorderPane.alignment="CENTER" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnRegresar" mnemonicParsing="false" onMouseClicked="#regresar" text="Regresar" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onMouseClicked="#guardarInformacion" text="Guardar" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onMouseClicked="#limpiar" text="Limpiar" />
+         </children>
+      </HBox>
    </bottom>
 </BorderPane>

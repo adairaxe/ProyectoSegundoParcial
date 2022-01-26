@@ -5,12 +5,18 @@
  */
 package ec.edu.espol.controllers;
 
+import ec.edu.espol.proyectosegundopar.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -19,24 +25,49 @@ import javafx.scene.control.TextField;
  */
 public class MascotaController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
     @FXML
     private Button btnRegresar;
     @FXML
-    private TextField textNombre;
+    private Button btnGuardar;
     @FXML
-    private TextField textRaza;
+    private Button btnLimpiar;
     @FXML
-    private TextField textFecha;
+    private TextField txNombre;
     @FXML
-    private TextField textTipo;
+    private TextField txRaza;
     @FXML
-    private Button subirFoto;
+    private TextField txTipo;
+    @FXML
+    private TextField txFechaNacimeinto;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void regresar(MouseEvent event) {
+        Stage stg = (Stage)btnRegresar.getScene().getWindow();
+        stg.close();
+        try {
+            
+            FXMLLoader loader = App.loadFXML("menu"); 
+            Scene scdueno = new Scene(loader.load(),600,400);
+            Stage stgdueno = new Stage();
+            stgdueno.setScene(scdueno);
+            stgdueno.show();
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void guardarInformacion(MouseEvent event) {
+    }
+
+    @FXML
+    private void limpiar(MouseEvent event) {
+    }
     
 }

@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.CriterioController">
    <top>
-      <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="30.0" text="TEXTO" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="30.0" text="Criterio" BorderPane.alignment="CENTER">
          <font>
-            <Font name="Dubai Light" size="24.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -23,21 +23,21 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="425.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button fx:id="btnRegresar" mnemonicParsing="false" onMouseClicked="#regresar" text="Regresar" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onMouseClicked="#guardar" text="Guardar" />
          </children>
       </HBox>
    </bottom>
    <left>
       <VBox alignment="CENTER" prefHeight="235.0" prefWidth="177.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="TEXTO 1">
+            <Label alignment="CENTER" prefWidth="143.0" text="Nombre:">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label text="TEXTO 2 " />
-            <Label text="TEXTO 3" />
+            <Label alignment="CENTER" prefWidth="143.0" text="Descripción" />
+            <Label alignment="CENTER" prefWidth="143.0" text="Puntaje Máximo" />
          </children>
          <BorderPane.margin>
             <Insets left="20.0" />
@@ -53,9 +53,9 @@
             <Insets left="20.0" right="20.0" />
          </padding>
          <children>
-            <TextField />
-            <TextField />
-            <TextField />
+            <TextField fx:id="txNombre" />
+            <TextField fx:id="txDescripcion" />
+            <TextField fx:id="txPuntajeMax" />
          </children>
       </VBox>
    </center>

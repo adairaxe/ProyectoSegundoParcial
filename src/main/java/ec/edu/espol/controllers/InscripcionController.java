@@ -6,15 +6,21 @@
 package ec.edu.espol.controllers;
 
 import ec.edu.espol.modelfmxl.Util;
+import ec.edu.espol.proyectosegundopar.App;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -31,6 +37,8 @@ public class InscripcionController implements Initializable {
     private TextField txtFechaInscripcion;
     @FXML
     private TextField txtTotalPagar;
+    @FXML
+    private Button btnRegresar;
 
     /**
      * Initializes the controller class.
@@ -72,6 +80,23 @@ public class InscripcionController implements Initializable {
         
         
         
+    }
+
+    @FXML
+    private void regresar(MouseEvent event) {
+        Stage stg = (Stage)btnRegresar.getScene().getWindow();
+        stg.close();
+        try {
+            
+            FXMLLoader loader = App.loadFXML("menu"); 
+            Scene scdueno = new Scene(loader.load(),600,400);
+            Stage stgdueno = new Stage();
+            stgdueno.setScene(scdueno);
+            stgdueno.show();
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     
