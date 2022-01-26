@@ -19,7 +19,7 @@
       </Label>
    </top>
    <right>
-      <VBox alignment="CENTER" prefHeight="326.0" prefWidth="301.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="vopcion2" alignment="CENTER" prefHeight="326.0" prefWidth="301.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnCriterio" mnemonicParsing="false" onMouseClicked="#criterio" prefWidth="130.0" text="Criterio" />
             <Button fx:id="btnInscripcion" mnemonicParsing="false" onMouseClicked="#inscripcion" prefWidth="130.0" text="Inscripción" />
@@ -29,7 +29,7 @@
       </VBox>
    </right>
    <left>
-      <VBox alignment="CENTER" prefHeight="326.0" prefWidth="301.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="vopcion1" alignment="CENTER" prefHeight="326.0" prefWidth="301.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnConcurso" mnemonicParsing="false" onMouseClicked="#concurso" prefHeight="26.0" prefWidth="130.0" text="Concurso">
                <VBox.margin>
