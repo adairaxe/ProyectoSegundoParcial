@@ -31,6 +31,7 @@
             <Label alignment="CENTER" prefHeight="18.0" prefWidth="143.0" text="Raza:" />
             <Label alignment="CENTER" prefWidth="143.0" text="Tipo" />
             <Label alignment="CENTER" prefWidth="143.0" text="Fecha de Nacimiento" />
+            <Label alignment="CENTER" prefWidth="143.0" text="Id Dueño" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -44,6 +45,7 @@
             <TextField fx:id="txRaza" />
             <TextField fx:id="txTipo" />
             <TextField fx:id="txFechaNacimeinto" />
+            <TextField fx:id="txtIDDueño" />
          </children>
       </VBox>
    </center>

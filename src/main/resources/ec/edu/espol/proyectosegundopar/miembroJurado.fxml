@@ -37,7 +37,7 @@
             <TextField fx:id="textNombre" prefWidth="397.0" />
             <TextField fx:id="textApellido" />
             <TextField fx:id="textTelefono" />
-            <TextField fx:id="TextEmail" />
+            <TextField fx:id="textEmail" />
             <TextField fx:id="textDescripcion" />
          </children></VBox>
    </center>
@@ -46,7 +46,7 @@
          <children>
             <Button fx:id="btnRegresar" mnemonicParsing="false" onMouseClicked="#regresar" text="Regresar" />
             <Button fx:id="btnguardar" mnemonicParsing="false" onMouseClicked="#guardando" text="Guardar" />
-            <Button fx:id="btnLimpiar" mnemonicParsing="false" onMouseClicked="#limpiar" text="Limpiar" />
+            <Button mnemonicParsing="false" onMouseClicked="#limpiar" text="Limpiar" />
          </children>
       </HBox>
    </bottom>
