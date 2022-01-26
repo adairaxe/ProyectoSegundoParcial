@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.MenuController">
+   <top>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="278.0" text="MENU DE OPCIONES" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </top>
+   <right>
+      <VBox alignment="CENTER" prefHeight="326.0" prefWidth="301.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#criterio" prefWidth="130.0" text="Criterio" />
+            <Button mnemonicParsing="false" onMouseClicked="#inscripcion" prefWidth="130.0" text="Inscripción" />
+            <Button mnemonicParsing="false" onMouseClicked="#MiembroJurado" prefWidth="130.0" text="Miembro del Jurado" />
+            <Button mnemonicParsing="false" onMouseClicked="#evaluacion" prefWidth="130.0" text="Evaluación" />
+         </children>
+      </VBox>
+   </right>
+   <left>
+      <VBox alignment="CENTER" prefHeight="326.0" prefWidth="301.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#concurso" prefHeight="26.0" prefWidth="130.0" text="Concurso">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#mascota" prefHeight="26.0" prefWidth="130.0" text="Mascota" />
+            <Button mnemonicParsing="false" onMouseClicked="#dueno" prefWidth="130.0" text="Dueño" />
+            <Button mnemonicParsing="false" onMouseClicked="#premio" prefWidth="130.0" text="Premio" />
+         </children>
+      </VBox>
+   </left>
+   <bottom>
+      <Button mnemonicParsing="false" onMouseClicked="#salir" prefWidth="130.0" text="Salir" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>
