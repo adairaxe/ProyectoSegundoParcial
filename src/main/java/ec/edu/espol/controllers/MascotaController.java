@@ -11,6 +11,7 @@ import ec.edu.espol.modelfmxl.MiembroJurado;
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -78,11 +79,12 @@ public class MascotaController implements Initializable {
             String raza= txRaza.getText();
             String tipo= txTipo.getText();
             String fechaNacimeinto= txFechaNacimeinto.getText();
-            
+            int idDueño = Integer.parseInt(txtIDDueño.getText());
             if (nombre!=null ||raza!=null||tipo!=null||fechaNacimeinto!=null){
                if (nombre!="" ||raza!=""||tipo!=""||fechaNacimeinto!=""){
-                    Duen persona_duen = new Duen(id_mascota, nombre, raza, tipo, fechaNacimeinto, descripcion);    
-                    persona_duen.saveFile("miembroJurado.txt");
+                   ///cambiosssss
+                    Mascota mascota1 = new Mascota(id_mascota, nombre, raza, tipo, LocalDate.parse(fechaNacimeinto), idDueño);    
+                    mascota1.saveFile("mascotas.txt");
                 }
 
             }else{
@@ -100,6 +102,11 @@ public class MascotaController implements Initializable {
 
     @FXML
     private void limpiar(MouseEvent event) {
+        txNombre.clear();
+        txRaza.clear();
+        txTipo.clear();
+        txFechaNacimeinto.clear();
+        txtIDDueño.clear();
     }
     
 }

@@ -84,30 +84,14 @@ public class MiembroJuradController implements Initializable {
             String email= textEmail.getText();
             String descripcion= textDescripcion.getText();
             
-//            
-//            
-//            
-//            REVISAR XQ NO SALE LA ALERTA CUANDO LOS CAMPOS ESTAN VACIOS
-//            
-//            
-//            
-            
-            
             if (nombre!=null ||apellido!=null||telefono!=null||email!=null||descripcion!=null
                    ){
 //                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){|| nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""
                 if (nombre!="" ||apellido!=""||telefono!=""||email!=""||descripcion!=""){
-                    Duen persona_duen = new Duen(id_dueno, nombre, apellido, telefono, email, descripcion);    
-                    persona_duen.saveFile("miembroJurado.txt");
+                    MiembroJurado persona_Jurado = new MiembroJurado(id_dueno, nombre, apellido, telefono, email, descripcion);    
+                    persona_Jurado.saveFile("miembroJurado.txt");
                 }
-//                else{
-//                    Alert a3= new Alert(AlertType.ERROR, "Ingreso de campos vacios" );
-//                    a3.show();
-//                } 
-                        
-                        
-//                }
-                
+
             }else{
                 Alert a3= new Alert(Alert.AlertType.ERROR, "Ingreso de campos vacios" );
                 a3.show();
