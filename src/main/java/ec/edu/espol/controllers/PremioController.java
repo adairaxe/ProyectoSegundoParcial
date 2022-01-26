@@ -5,15 +5,21 @@
  */
 package ec.edu.espol.controllers;
 
+import ec.edu.espol.modelfmxl.Concurso;
+import ec.edu.espol.modelfmxl.Duen;
+import ec.edu.espol.modelfmxl.Premio;
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -54,10 +60,29 @@ public class PremioController implements Initializable {
 
     @FXML
     private void guardarInformacion(MouseEvent event) {
+        ArrayList<Premio> lista_concursos = Premio.readFromFile("premio.txt");
+        int id_premio = lista_concursos.size()+1;
+        try
+        {
+            String lugar= txLugar.getText();
+            String descripcion= txDescripcion.getText();
+            
+            if (lugar!="" || descripcion !="")
+            {
+                Premio premio = new Premio(id_premio,Integer.parseInt(lugar),descripcion);    
+                premio.saveFile("premio.txt");
+            }
+        }catch(Exception e){
+            Alert a2= new Alert(Alert.AlertType.ERROR, "Ingreso los datos de manera incorrecta" );
+            a2.show();
+        }
+        
     }
 
     @FXML
     private void limpiar(MouseEvent event) {
+        txLugar.clear();
+        txDescripcion.clear();
     }
     
 }
