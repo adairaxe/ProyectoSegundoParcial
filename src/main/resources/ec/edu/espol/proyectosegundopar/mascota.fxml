@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.MascotaController">
    <top>
@@ -21,7 +23,7 @@
       </Label>
    </top>
    <left>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="168.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="128.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" prefHeight="18.0" prefWidth="144.0" text="Nombre:">
                <opaqueInsets>
@@ -32,6 +34,7 @@
             <Label alignment="CENTER" prefWidth="143.0" text="Tipo" />
             <Label alignment="CENTER" prefWidth="143.0" text="Fecha de Nacimiento" />
             <Label alignment="CENTER" prefWidth="143.0" text="Id Dueño" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -39,13 +42,14 @@
       </VBox>
    </left>
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="320.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="txNombre" />
             <TextField fx:id="txRaza" />
             <TextField fx:id="txTipo" />
             <TextField fx:id="txFechaNacimeinto" />
             <TextField fx:id="txtIDDueño" />
+            <Button fx:id="Subir" mnemonicParsing="false" onMouseClicked="#subir" text="Subir Imagen" />
          </children>
       </VBox>
    </center>
@@ -58,4 +62,11 @@
          </children>
       </HBox>
    </bottom>
+   <right>
+      <VBox fx:id="hbmascota" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="mascota" fitHeight="207.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+   </right>
 </BorderPane>

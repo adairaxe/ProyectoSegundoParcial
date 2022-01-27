@@ -9,6 +9,7 @@ import ec.edu.espol.modelfmxl.Duen;
 import ec.edu.espol.modelfmxl.Mascota;
 import ec.edu.espol.modelfmxl.MiembroJurado;
 import ec.edu.espol.proyectosegundopar.App;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -22,7 +23,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -48,6 +53,13 @@ public class MascotaController implements Initializable {
     private TextField txFechaNacimeinto;
     @FXML
     private TextField txtIDDueño;
+    @FXML
+    private Button Subir;
+    @FXML
+    private VBox hbmascota;
+    @FXML
+    private ImageView mascota;
+    private FileChooser fc= new FileChooser();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -76,6 +88,12 @@ public class MascotaController implements Initializable {
                    ///cambiosssss
                     Mascota mascota1 = new Mascota(id_mascota, nombre, raza, tipo, LocalDate.parse(fechaNacimeinto), idDueño);    
                     mascota1.saveFile("mascotas.txt");
+                    fc.setInitialDirectory(new File(System.getProperty("user.home")));
+                    fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Files", "."));
+                    File seledFile= fc.showOpenDialog(null);
+                    Image img= new Image (seledFile.toURI().toString());
+                    mascota1.setImgm(img);
+                
                 }
 
             }else{
@@ -98,6 +116,29 @@ public class MascotaController implements Initializable {
         txTipo.clear();
         txFechaNacimeinto.clear();
         txtIDDueño.clear();
+        mascota.setImage(null);
+    }
+
+    @FXML
+    private void subir(MouseEvent event) {
+        
+//        fc.setInitialDirectory(new File("C:\\Users\\59399\\Downloads"));
+//        fc.getExtensionFilters().addAll(
+//                new ExtensionFilter("imagenes")
+//        );
+        fc.setInitialDirectory(new File(System.getProperty("user.home")));
+        //fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Files", "."));
+
+
+        File seledFile= fc.showOpenDialog(null);
+        if (seledFile!= null){
+//            listview.ç
+//            Image image = new Image(seledFile.getAbsolutePath());
+//            ImageView iv = new ImageView(image);
+            Image img= new Image (seledFile.toURI().toString());
+//            mascota.getChildren().add(iv);
+            mascota.setImage(img);
+        }
     }
     
 }

@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Scanner;
+import javafx.scene.image.Image;
+
 
 public class Mascota {
     private String nombre,raza,tipo,emailDueño;
@@ -20,7 +22,16 @@ public class Mascota {
     private LocalDate fechaNacimiento;
     private Duen dueño;
     private ArrayList<Inscripcion> inscripciones;
+    private Image imgm;
 
+    public Image getImgm() {
+        return imgm;
+    }
+
+    public void setImgm(Image imgm) {
+        this.imgm = imgm;
+    }
+    
     public Mascota( int id,String nombre, String raza, String tipo, LocalDate fechaNacimiento, int idDueño) {
         this.nombre = nombre;
         this.raza = raza;
