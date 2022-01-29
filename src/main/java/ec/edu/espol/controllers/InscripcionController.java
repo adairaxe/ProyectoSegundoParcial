@@ -5,11 +5,14 @@
  */
 package ec.edu.espol.controllers;
 
+import ec.edu.espol.model.Inscripcion;
+import ec.edu.espol.modelfmxl.Concurso;
 import ec.edu.espol.modelfmxl.Util;
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +57,8 @@ public class InscripcionController implements Initializable {
 
     @FXML
     private void guardarInscripcion(MouseEvent event) {
+        ArrayList<Inscripcion> lista_inscripciones = Inscripcion.readFile("inscripcion.txt");
+        int id_inscripcion = lista_inscripciones.size()+1;
         
         int id_mascota = Util.examinarIdMascota(txtNombreMascota.getText());
         int id_concurso = Util.examinarIdConcurso(txtNombreConcurso.getText());
@@ -67,7 +72,7 @@ public class InscripcionController implements Initializable {
         if (fecha_actual.isBefore(Util.fecha_inicio_concurso(id_concurso))){    
             alertfecha = new Alert(AlertType.ERROR,"LA FECHA DE INSCRIPCION AUN NO COMIENZA");          
         }       
-        else{           
+        else if(fecha_actual.isAfter(Util.fecha_cierre_concurso(id_mascota))){           
             alertfecha = new Alert(AlertType.ERROR,"LA FECHA DE INSCRIPCION HA TERMINADO");
         }
         
@@ -79,6 +84,9 @@ public class InscripcionController implements Initializable {
             alertacosto = new Alert(AlertType.ERROR,"El costo a pagar es de\n"+Util.exminarCostoConcurso(id_concurso));           
         }
         
+        //Inscripcion(int id, LocalDate fecha_inscripcion, double valor, int idMascota,int idConcurso )
+        Inscripcion inscripcion = new Inscripcion(id_inscripcion, fecha_actual, precio_concurso, id_mascota, id_concurso);
+        inscripcion.saveFile("inscripcion.txt");
         
         
         

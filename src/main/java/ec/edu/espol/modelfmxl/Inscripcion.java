@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -98,19 +99,32 @@ public class Inscripcion {
     
     
     public void saveFile (String inscripcionesfield){
-       try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(inscripcionesfield),true))){
+        /*try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(inscripcionesfield),true))){
            pw.println(this.id + "|"+ this.fecha_inscripcion+ "|" + this.valor + "|"+ this.idMascota + "|"+ this.idConcurso + "|");
            for (Evaluacion m: this.getEvaluacion()){
                 pw.println(m.getId() + ";");
            }
         }catch(Exception e){
            //System.out.println(e.getMessage());
-       }  
+       }*/
+        
+        
+        try(BufferedWriter  bw  = new BufferedWriter (new FileWriter(inscripcionesfield, true)))
+        {
+            //Inscripcion(int id, LocalDate fecha_inscripcion, double valor, int idMascota,int idConcurso )
+            bw.write(this.id + "|"+ this.fecha_inscripcion+ "|" + this.valor + "|"+ this.idMascota+ "|"+ this.idConcurso);
+            bw.newLine();
+            
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+       
+       
     }
     
     
     public static void saveFile(ArrayList<Inscripcion> listainscripciones, String inscripcionesfield){
-        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(inscripcionesfield),true))){
+        /*try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(inscripcionesfield),true))){
             for (Inscripcion ins : listainscripciones){
                 String cadena="";
                 for (Evaluacion m: ins.getEvaluacion()){
@@ -122,8 +136,24 @@ public class Inscripcion {
         }
         catch(Exception e){
             //System.out.println(e.getMessage());
-        }       
+        } */      
+        
+        
+        try( BufferedWriter  bw  = new BufferedWriter (new FileWriter(inscripcionesfield, true))) 
+            {
+            for (Inscripcion c : listainscripciones)
+            {
+                bw.write(c.id + "|"+ c.fecha_inscripcion+ "|" + c.valor + "|"+ c.idMascota+ "|"+ c.idConcurso);
+                bw.newLine();
+            }
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }
     }
+    
+    
+    
     public static ArrayList<Evaluacion>  GenerarListEvaluacionInscripcion(String nombre,int id){
         ArrayList<Evaluacion> e2 = new ArrayList<>();
         ArrayList<Evaluacion> e= Evaluacion.readFile(nombre);
@@ -134,6 +164,9 @@ public class Inscripcion {
         }
         return e2;
     }
+    
+    
+    
     public static void ArchivoEvaluacionInscripcion(){
         ArrayList<Inscripcion> inscripciones_lista = Inscripcion.readFile("inscripciones.txt");
         try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File("inscripciones.txt")))){
@@ -151,6 +184,10 @@ public class Inscripcion {
         }catch(Exception e){ //System.out.println(e.getMessage());
             }
     }
+    
+    
+    
+    
     public static ArrayList<Inscripcion> readFile(String nombre){
         ArrayList<Inscripcion> inscripciones= new ArrayList<>();
         try (Scanner sc =new Scanner(new File (nombre))){
@@ -165,6 +202,9 @@ public class Inscripcion {
         }
         return inscripciones;
     }
+    
+    
+    
     
     public static Inscripcion nextInscripcion(Scanner sc){
         int id,id_mascota, id_concurso;
