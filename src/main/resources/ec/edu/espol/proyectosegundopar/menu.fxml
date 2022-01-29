@@ -43,7 +43,7 @@
       </HBox>
    </center>
    <top>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="278.0" text="MENU DE OPCIONES" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="278.0" style="-fx-background-color: verde;" text="MENU DE OPCIONES" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
