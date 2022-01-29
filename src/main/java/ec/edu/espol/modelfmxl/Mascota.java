@@ -17,7 +17,7 @@ import javafx.scene.image.Image;
 
 
 public class Mascota {
-    private String nombre,raza,tipo,emailDueño;
+    private String nombre,raza,tipo,emailDueño,ruta;
     private int id,idDueño;
     private LocalDate fechaNacimiento;
     private Duen dueño;
@@ -40,8 +40,26 @@ public class Mascota {
         this.fechaNacimiento = fechaNacimiento;
         this.idDueño = idDueño;
     }
+    public Mascota( int id,String nombre, String raza, String tipo, LocalDate fechaNacimiento, int idDueño,String ruta) {
+        this.nombre = nombre;
+        this.raza = raza;
+        this.tipo = tipo;
+        this.id = id;
+        this.fechaNacimiento = fechaNacimiento;
+        this.idDueño = idDueño;
+        this.ruta= ruta;
+        this.imgm= new Image (ruta);
+    }
     
+    public String getRuta() {
+        return ruta;
+    }
+
     //Gets and Sets
+    public void setRuta(String ruta) {    
+        this.ruta = ruta;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -157,10 +175,14 @@ public class Mascota {
             bufferedWriter.write("|");
             bufferedWriter.write(String.valueOf(this.getIdDueño()));
             bufferedWriter.write("|");
-            for (Inscripcion i: this.getInscripciones()){
-                bufferedWriter.write(String.valueOf(i.getId()));
-                bufferedWriter.write("|");
+//            for (Inscripcion i: this.getInscripciones()){
+//                bufferedWriter.write(String.valueOf(i.getId()));
+//                bufferedWriter.write(";");
+//            }
+            if(this.ruta!=null || this.ruta!=""){
+                bufferedWriter.write(String.valueOf(this.getRuta()));
             }
+            
             bufferedWriter.newLine();
             bufferedWriter.close();
         }catch(Exception e) {
@@ -198,12 +220,15 @@ public class Mascota {
                 bufferedWriter.write("|");
                 bufferedWriter.write(String.valueOf(v.getIdDueño()));
                 bufferedWriter.write("|");
-                for (Inscripcion i: v.getInscripciones()){
-                    bufferedWriter.write(String.valueOf(i.getId()));
-                    bufferedWriter.write("|");
+//                for (Inscripcion i: v.getInscripciones()){
+//                    bufferedWriter.write(String.valueOf(i.getId()));
+//                    bufferedWriter.write(";");
+//                }
+                if(v.ruta!=null || v.ruta!=""){
+                    bufferedWriter.write(v.getRuta());
                 }
                 bufferedWriter.newLine();
-            
+                
             } 
             bufferedWriter.close();
 
@@ -236,8 +261,15 @@ public class Mascota {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] datos = line.split("\\|"); 
-                String[] datos2 = datos[1].split(";");
-                Mascota v= new Mascota(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],LocalDate.parse(datos[4]),Integer.parseInt(datos[5]));
+                //String[] datos2 = datos[1].split(";");
+                Mascota v;
+                if(datos[6]!=null || datos[6]!=""){
+                    v= new Mascota(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],LocalDate.parse(datos[4]),Integer.parseInt(datos[5]),datos[6]);
+                    v.setRuta(datos[6]);
+                }else{
+                    v= new Mascota(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],LocalDate.parse(datos[4]),Integer.parseInt(datos[5]));
+                }
+                
                 mascotas.add(v); 
             }
             reader.close();

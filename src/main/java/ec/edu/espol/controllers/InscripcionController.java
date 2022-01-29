@@ -5,8 +5,8 @@
  */
 package ec.edu.espol.controllers;
 
-import ec.edu.espol.model.Inscripcion;
 import ec.edu.espol.modelfmxl.Concurso;
+import ec.edu.espol.modelfmxl.Inscripcion;
 import ec.edu.espol.modelfmxl.Util;
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;

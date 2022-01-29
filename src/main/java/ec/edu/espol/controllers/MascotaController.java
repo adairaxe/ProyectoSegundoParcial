@@ -61,6 +61,7 @@ public class MascotaController implements Initializable {
     @FXML
     private ImageView mascota;
     private FileChooser fc= new FileChooser();
+    private String ruta;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,15 +88,19 @@ public class MascotaController implements Initializable {
             int idDueño = Integer.parseInt(txtIDDueño.getText());
             if (nombre!=null ||raza!=null||tipo!=null||fechaNacimeinto!=null){
                if (nombre!="" ||raza!=""||tipo!=""||fechaNacimeinto!=""){
-                   ///cambiosssss
+//                   ///cambiosssss
                     Mascota mascota1 = new Mascota(id_mascota, nombre, raza, tipo, LocalDate.parse(fechaNacimeinto), idDueño);    
-                    mascota1.saveFile("mascotas.txt");
-                    fc.setInitialDirectory(new File(System.getProperty("user.home")));
-                    fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Files", "."));
-                    File seledFile= fc.showOpenDialog(null);
-                    Image img= new Image (seledFile.toURI().toString());
+                    
+//                    fc.setInitialDirectory(new File(System.getProperty("user.home")));
+//                    fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Files", "."));
+//                    File seledFile= fc.showOpenDialog(null);
+                    Image img= new Image (ruta);
+                    
                     mascota1.setImgm(img);
-                
+                    
+                        mascota1.saveFile("mascotas.txt");
+                    
+                    
                 }
 
             }else{
@@ -138,6 +143,7 @@ public class MascotaController implements Initializable {
 //            Image image = new Image(seledFile.getAbsolutePath());
 //            ImageView iv = new ImageView(image);
             Image img= new Image (seledFile.toURI().toString());
+            ruta=seledFile.toURI().toString();
 //            mascota.getChildren().add(iv);
             mascota.setImage(img);
         }
