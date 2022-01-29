@@ -48,7 +48,7 @@ public class Mascota {
         this.fechaNacimiento = fechaNacimiento;
         this.idDueño = idDueño;
         this.ruta= ruta;
-        this.imgm= new Image (ruta);
+//        this.imgm= new Image (ruta);
     }
     
     public String getRuta() {
@@ -255,7 +255,7 @@ public class Mascota {
 //        
 //        return mascotas;
         ArrayList<Mascota> mascotas= new ArrayList<>();
-        try (Scanner sc =new Scanner(new File (nombre))){
+        try {
             FileReader reader = new FileReader(nombre);
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
@@ -269,7 +269,8 @@ public class Mascota {
                 }else{
                     v= new Mascota(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],LocalDate.parse(datos[4]),Integer.parseInt(datos[5]));
                 }
-                
+//                System.out.println(v);
+//                System.out.println(v.getRuta());
                 mascotas.add(v); 
             }
             reader.close();

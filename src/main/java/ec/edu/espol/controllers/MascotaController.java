@@ -97,10 +97,10 @@ public class MascotaController implements Initializable {
                     Image img= new Image (ruta);
                     
                     mascota1.setImgm(img);
-                    
-                        mascota1.saveFile("mascotas.txt");
-                    
-                    
+                    mascota1.setRuta(ruta);
+                    mascota1.saveFile("mascotas.txt");
+                     limpiar(event);
+                    regresar(event);
                 }
 
             }else{
@@ -147,6 +147,7 @@ public class MascotaController implements Initializable {
 //            mascota.getChildren().add(iv);
             mascota.setImage(img);
         }
+       
     }
     
 }
