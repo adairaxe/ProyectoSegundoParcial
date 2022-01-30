@@ -63,8 +63,12 @@ public class EvaluacionController {
         System.out.println(idEvaluacion);
         
         int idMiembroJurado = Util.examinarIdMiembroJurado(txCorreo.getText());
+<<<<<<< HEAD
         System.out.println(idMiembroJurado);
         
+=======
+        System.out.println("idMiembroJurado"+idMiembroJurado);
+>>>>>>> 86c5dacc8d0eb0d0f8dcf7f477962c9215bd4dbc
         int idInscripcion = Util.examinarIdInscripcion(Integer.parseInt(txidInscripcion.getText()));
         System.out.println(idInscripcion);
   

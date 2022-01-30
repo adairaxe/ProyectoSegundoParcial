@@ -93,9 +93,12 @@ public class MiembroJurado extends Persona {
 //        }
 //        return miembroJurado;
         ArrayList<MiembroJurado> miembroJurado= new ArrayList<>();
-        try {
-            FileReader reader = new FileReader(nombre);
+        try (FileReader reader = new FileReader(nombre);
             BufferedReader bufferedReader = new BufferedReader(reader);
+                )
+        
+        {
+            
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] datos = line.split("\\|"); 
