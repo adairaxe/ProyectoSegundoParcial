@@ -203,12 +203,13 @@ public class Inscripcion implements Serializable {
             while ((line = br.readLine()) != null) {
                 String[] datos = line.split("\\|"); 
                 
+                //Inscripcion(int id, LocalDate fecha_inscripcion, double valor, int idMascota,int idConcurso )
                 Inscripcion ins = new Inscripcion(Integer.parseInt(datos[0]),LocalDate.parse(datos[1]), Double.parseDouble(datos[2]),Integer.parseInt(datos[3]),Integer.parseInt(datos[4]));                
                 inscripciones.add(ins);
             }
             reader.close();
         }catch (Exception e){
-            e.printStackTrace();
+            System.out.println("EL ARCHIVO NO EXISTE");;
         }
         return inscripciones;
     

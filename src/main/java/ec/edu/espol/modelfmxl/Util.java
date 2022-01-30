@@ -136,7 +136,7 @@ public class Util implements Serializable{
    
         
     public static int examinarIdConcurso(String nombre_concurso){
-    ArrayList<Concurso> concursos = Concurso.readFromFile("concursos.txt");
+    ArrayList<Concurso> concursos = Concurso.readFromFile("concurso.txt");
     for (Concurso i: concursos){
         if (nombre_concurso.equals(i.getNombre())){
             return i.getId();
@@ -148,7 +148,7 @@ public class Util implements Serializable{
     
     
     public static double exminarCostoConcurso(int id){
-        ArrayList<Concurso> concurso =Concurso.readFromFile("concursos.txt");
+        ArrayList<Concurso> concurso =Concurso.readFromFile("concurso.txt");
         for (Concurso c: concurso){
             if (id==c.getId()){
                 return c.getCosto();
@@ -161,7 +161,7 @@ public class Util implements Serializable{
     
     
     public static LocalDate fecha_inicio_concurso(int id){
-        ArrayList<Concurso> concursos = Concurso.readFromFile("concursos.txt");
+        ArrayList<Concurso> concursos = Concurso.readFromFile("concurso.txt");
         for (Concurso i: concursos){
             if(id==i.getId()){
                 return i.getFechaInscripcion();
@@ -171,7 +171,7 @@ public class Util implements Serializable{
     }
     
     public static LocalDate fecha_cierre_concurso(int id){
-        ArrayList<Concurso> concursos = Concurso.readFromFile("concursos.txt");
+        ArrayList<Concurso> concursos = Concurso.readFromFile("concurso.txt");
         for (Concurso i: concursos){
             if(id==i.getId()){
                 return i.getFechaCierreInscripcion();
