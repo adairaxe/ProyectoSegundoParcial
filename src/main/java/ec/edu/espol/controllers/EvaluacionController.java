@@ -113,6 +113,15 @@ public class EvaluacionController implements Initializable{
         
         int notaMaxima = Util.examinarCriterio(Integer.parseInt(txidCriterio.getText())).getPunt_max();
         
+        String mascotaNombre = cbmascotas.getValue();
+        ArrayList<Mascota> mascotas = Mascota.readFile("mascotas.txt");
+        int idMascota=0;
+        for(Mascota m:mascotas){
+            if (m.getNombre().equals(mascotaNombre)){
+                idMascota= idMascota+m.getId();
+            }
+        }
+        
         Alert alerta;
         if (idMiembroJurado != 0){
             
@@ -121,7 +130,7 @@ public class EvaluacionController implements Initializable{
                 if(idCriterio != 0){
                     
                     if(nota <= notaMaxima){
-                        Evaluacion evaluacion = new Evaluacion(idEvaluacion, idMiembroJurado, idInscripcion, idCriterio, nota);
+                        Evaluacion evaluacion = new Evaluacion(idEvaluacion, idMascota,idMiembroJurado, idInscripcion, idCriterio, nota);
                         evaluacion.saveFile("evaluaciones.txt");
                     }else{
                         alerta = new Alert(AlertType.ERROR, "La nota ingresada supera la nota maxima");

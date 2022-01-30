@@ -1,9 +1,11 @@
 package ec.edu.espol.modelfmxl;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class Evaluacion {
     private int idMiembroJurado;
     private int idCriterio;
     private Criterio criterio;
+    private int idMascota;
     
 
     public Evaluacion(int id, int idMiembroJurado, int idInscripcion, int idCriterio, int nota) {
@@ -27,6 +30,25 @@ public class Evaluacion {
         this.idMiembroJurado = idMiembroJurado;
         this.idCriterio = idCriterio;
     }
+    public Evaluacion(int id,int idMascota, int idMiembroJurado, int idInscripcion, int idCriterio, int nota) {
+        this.id = id;
+        this.idMascota=idMascota;
+        this.nota = nota;
+        this.idInscripcion = idInscripcion;
+        this.idMiembroJurado = idMiembroJurado;
+        this.idCriterio = idCriterio;
+    }
+
+    public int getIdMascota() {
+        return idMascota;
+    }
+
+    public void setIdMascota(int idMascota) {
+        this.idMascota = idMascota;
+    }
+
+    
+    
 
     public int getId() {
         return this.id;
@@ -75,12 +97,35 @@ public class Evaluacion {
     }
 
    
-    public void saveFile (String evaluacionefield){
-       try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(evaluacionefield),true))){
-           pw.println(this.id + "|"+ this.nota+ "|" + this.idInscripcion + "|"+ this.idMiembroJurado + "|"+ this.idCriterio);
-       }catch(Exception e){
-           //System.out.println(e.getMessage());
-       }  
+//    public void saveFile (String evaluacionefield){
+//       try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(evaluacionefield),true))){
+//           pw.println(this.id + "|"+ this.nota+ "|" + this.idInscripcion + "|"+ this.idMiembroJurado + "|"+ this.idCriterio);
+//       }catch(Exception e){
+//           //System.out.println(e.getMessage());
+//       }  
+//    }
+    public void saveFile (String ruta){
+        try{
+            FileWriter writer= new FileWriter(ruta, true);
+            BufferedWriter bufferedWriter= new BufferedWriter(writer);
+            bufferedWriter.write(String.valueOf(this.getId()));
+            bufferedWriter.write("|");
+            bufferedWriter.write(String.valueOf(this.getNota()));
+            bufferedWriter.write("|");
+            bufferedWriter.write(String.valueOf(this.getIdInscripcion()));
+            bufferedWriter.write("|");
+            bufferedWriter.write(String.valueOf(this.getIdMiembroJurado()));
+            bufferedWriter.write("|");
+            bufferedWriter.write(String.valueOf(this.getIdCriterio()));
+            bufferedWriter.write("|");
+
+            
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+        }catch(Exception e) {
+            e.printStackTrace();
+//            //System.out.println(e.getMessage());
+        }
     }
     
     
@@ -111,7 +156,7 @@ public class Evaluacion {
         while ((line = br.readLine()) != null) {
             String[] datos = line.split("\\|"); 
             //Evaluacion(int id, int idMiembroJurado, int idInscripcion, int idCriterio, int nota)
-            Evaluacion evaluacion = new Evaluacion(Integer.parseInt(datos[0]), Integer.parseInt(datos[1]), Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),Integer.parseInt(datos[4]));                
+            Evaluacion evaluacion = new Evaluacion(Integer.parseInt(datos[0]),Integer.parseInt(datos[5]), Integer.parseInt(datos[1]), Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),Integer.parseInt(datos[4]));                
             evaluaciones.add(evaluacion);
         }
         reader.close();
