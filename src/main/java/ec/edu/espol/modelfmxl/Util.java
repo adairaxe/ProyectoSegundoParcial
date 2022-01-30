@@ -92,6 +92,12 @@ public class Util implements Serializable{
     }
     
     
+    
+    
+    
+    /**************  INSCRIPCION          ***********************/
+    
+    
     public static Inscripcion next_InsInscripcion(Scanner sc){
         System.out.println("Ingrese el id de la inscripcion: ");
         int id= sc.nextInt();
@@ -105,6 +111,28 @@ public class Util implements Serializable{
     }
     
     
+    
+    public static int examinarIdInscripcion(int id){
+        ArrayList<Inscripcion> inscripciones = Inscripcion.readFile("inscripciones.txt");
+        for (Inscripcion d: inscripciones){
+            if (id==d.getId()){
+                return d.getId();
+            }  
+        }
+    return 0;
+    }
+    
+    
+    /************************************/
+    
+    
+    
+    
+    
+    
+    
+    /******************  CRITERIO     *//////////////
+    
     public static Criterio id_criterio(Scanner sc){
         System.out.println("Ingrese el id del criterio: ");
         int id= sc.nextInt();
@@ -116,6 +144,24 @@ public class Util implements Serializable{
         }
     return null;
     }
+    
+
+    
+    public static Criterio examinarCriterio(int id){
+    ArrayList<Criterio> lista_criterios = Criterio.readFromFile("criterios.txt");
+    for (Criterio criterio: lista_criterios){
+        if (id==criterio.getId()){
+            return criterio;
+        }  
+    }
+    return null;
+    }
+    
+    
+    /*********************************/
+    
+    
+    
     
     
     
@@ -180,5 +226,21 @@ public class Util implements Serializable{
         return null;       
     }
     ////////////////////////////////////////////////
+    
+    
+    
+    /****************** MIEMBRO JURADO ********************/
+    
+    public static int examinarIdMiembroJurado(String emailMiembroJurado){
+        ArrayList<MiembroJurado>  miembros =  MiembroJurado.readFile("miembroJurados.txt");     
+        for (MiembroJurado m: miembros){
+            if(emailMiembroJurado.equals(m.getEmail()))
+            {
+                return m.getId();
+            }
+        }
+        return 0;
+    }
+    
 }
 
