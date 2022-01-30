@@ -71,6 +71,9 @@ public class PremioController implements Initializable {
             {
                 Premio premio = new Premio(id_premio,Integer.parseInt(lugar),descripcion);    
                 premio.saveFile("premio.txt");
+                limpiar(event);
+                Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                a5.show();
             }
         }catch(Exception e){
             Alert a2= new Alert(Alert.AlertType.ERROR, "Ingreso los datos de manera incorrecta" );

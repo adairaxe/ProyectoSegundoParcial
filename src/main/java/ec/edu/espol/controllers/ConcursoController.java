@@ -83,6 +83,9 @@ public class ConcursoController implements Initializable {
             {
                 Concurso concurso = new Concurso(id_concurso,nombre, LocalDate.parse(fecha),LocalDate.parse(fechains),LocalDate.parse(fechacierre), tema,Double.parseDouble(costo));    
                 concurso.saveFile("concurso.txt");
+                limpiar(event);
+                Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                a5.show();
             }
         }catch(Exception e){
             Alert a2= new Alert(Alert.AlertType.ERROR, "Ingreso los datos de manera incorrecta" );

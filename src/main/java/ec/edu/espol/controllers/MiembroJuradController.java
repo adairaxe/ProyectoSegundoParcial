@@ -81,6 +81,9 @@ public class MiembroJuradController implements Initializable {
                 if (nombre!="" ||apellido!=""||telefono!=""||email!=""||descripcion!=""){
                     MiembroJurado persona_Jurado = new MiembroJurado(id_dueno, nombre, apellido, telefono, email, descripcion);    
                     persona_Jurado.saveFile("miembroJurado.txt");
+                    limpiar(event);
+                    Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                    a5.show();
                 }
 
             }else{

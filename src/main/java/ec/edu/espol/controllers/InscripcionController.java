@@ -113,6 +113,9 @@ public class InscripcionController implements Initializable, Serializable {
                 Inscripcion inscripcion = new Inscripcion(id_inscripcion, fecha_actual, precio_concurso, id_mascota, id_concurso);
                 System.out.println("SE HA CREADO LA INSCRIPCION");
                 inscripcion.saveFile("inscripcion.txt");
+                limpiar(event);
+                Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                a5.show();
             }else{
                 Alert alertCostoFecha = new Alert(AlertType.ERROR, "Revise el periodo de inscripcion y el costo del concurso");
                 alertCostoFecha.show();

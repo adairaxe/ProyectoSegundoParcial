@@ -71,36 +71,24 @@ public class DuenController implements Initializable {
             String apellido= textApellido.getText();
             String telefono= textTelefono.getText();
             String email= txtEmail.getText();
-            String direccion= textDireccion.getText();
-            
-//            
-//            
+            String direccion= textDireccion.getText();       
 //            
 //            REVISAR XQ NO SALE LA ALERTA CUANDO LOS CAMPOS ESTAN VACIOS
 //            
-//            
-//            
-            
-            
-            if (nombre!=null ||apellido!=null||telefono!=null||email!=null||direccion!=null
-                   ){
+            if (nombre.equals("") ||apellido.equals("")||telefono.equals("")||email.equals("")||direccion.equals("") ){
+                Alert a3= new Alert(AlertType.ERROR, "Ingreso de campos vacios" );
+                a3.show();
+            }
+            else {
 //                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){|| nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""
                 if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){
                     Duen persona_duen = new Duen(id_dueno, nombre, apellido, telefono, email, direccion);    
                     persona_duen.saveFile("duenos.txt");
+                    limpiar(event);
+                    Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                    a5.show();
                 }
-//                else{
-//                    Alert a3= new Alert(AlertType.ERROR, "Ingreso de campos vacios" );
-//                    a3.show();
-//                } 
-                        
-                        
-//                }
-                
-            }else{
-                Alert a3= new Alert(AlertType.ERROR, "Ingreso de campos vacios" );
-                a3.show();
-            } 
+            }
             
         }catch(Exception e){
             Alert a2= new Alert(AlertType.ERROR, "Ingreso los datos de manera incorrecta" );
