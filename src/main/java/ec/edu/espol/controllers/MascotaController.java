@@ -5,6 +5,7 @@
  */
 package ec.edu.espol.controllers;
 
+import ec.edu.espol.modelfmxl.*;
 import ec.edu.espol.modelfmxl.Duen;
 import ec.edu.espol.modelfmxl.Mascota;
 import ec.edu.espol.modelfmxl.MiembroJurado;
@@ -98,9 +99,18 @@ public class MascotaController implements Initializable {
                     
                     mascota1.setImgm(img);
                     mascota1.setRuta(ruta);
-                    mascota1.saveFile("mascotas.txt");
-                     limpiar(event);
-                    regresar(event);
+                    boolean existenteID = Mascota.idDuenMascota(idDueño);
+                    if (existenteID==true){
+                        mascota1.saveFile("mascotas.txt");
+                        limpiar(event);
+                        regresar(event);
+                    }else{
+                        Alert a4= new Alert(Alert.AlertType.ERROR, "El ID de Dueño no existe" );
+                        a4.show();
+                        txtIDDueño.clear();
+                    }
+                   
+                    
                 }
 
             }else{
