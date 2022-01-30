@@ -60,16 +60,12 @@ public class Util implements Serializable{
     
     public static int examinarIdMascota(String nombre_mascota){
     ArrayList<Mascota> mascotas = Mascota.readFile("mascotas.txt");
-    try{
         for (Mascota m: mascotas){
         if (nombre_mascota.equals(m.getNombre())){
             return m.getId();
             }  
         }   
-    }catch(Exception e){
-        Alert a = new Alert(AlertType.ERROR,"FALLO ExaminarIdMascota");
-        a.show();
-    }
+    
     return 0;
     }
     

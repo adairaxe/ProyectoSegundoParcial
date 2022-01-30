@@ -7,6 +7,7 @@ package ec.edu.espol.controllers;
 
 import ec.edu.espol.modelfmxl.Concurso;
 import ec.edu.espol.modelfmxl.Inscripcion;
+import ec.edu.espol.modelfmxl.Mascota;
 import ec.edu.espol.modelfmxl.Util;
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
@@ -83,6 +84,10 @@ public class InscripcionController implements Initializable, Serializable {
     private void guardarInscripcion(MouseEvent event) {
         ArrayList<Inscripcion> lista_inscripciones = Inscripcion.readFile("inscripcion.txt");
         
+        System.out.println("AQUI INICIA");
+        System.out.println(Mascota.readFile("mascotas.txt").size());      
+        System.out.println("AQUI DEBERIA LLEGAR PARWA DESCARTAR EL readFile de mascotas");
+        
         int id_inscripcion = lista_inscripciones.size()+1;      
         int id_mascota = Util.examinarIdMascota(txtNombreMascota.getText());   
         int id_concurso = Util.examinarIdConcurso(txtNombreConcurso.getText());
@@ -124,7 +129,7 @@ public class InscripcionController implements Initializable, Serializable {
         }
         else{
             Alert alertMascotaConcurso = new Alert(AlertType.ERROR, "¿Ya registro a su mascota?\n Tambien puede verificar si el"
-                    + "nombre del concurso ingresado es el correcto");
+                    + " nombre del concurso ingresado es el correcto");
             alertMascotaConcurso.show();
         }
     }
@@ -136,10 +141,18 @@ public class InscripcionController implements Initializable, Serializable {
         FXMLLoader loader = App.loadFXML("menu");
         Parent root= loader.load();
         App.scene.setRoot(root);
+        
     }
+    
+    
 
     @FXML
     private void limpiar(MouseEvent event) {
+        txtNombreMascota.setText("");
+        txtNombreConcurso.setText("");
+        txtFechaInscripcion.setText("");
+        txTotalPagar.setText("");
+        
     }
 
     

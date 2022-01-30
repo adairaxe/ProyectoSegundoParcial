@@ -249,7 +249,7 @@ public class Mascota {
             FileReader reader = new FileReader(nombre);
             BufferedReader br = new BufferedReader(reader);
             
-        
+             
             String line;
             while ((line = br.readLine()) != null) {
                 String[] datos = line.split("\\|"); 
@@ -280,6 +280,32 @@ public class Mascota {
         return mascotas;
     }
     
+    
+    public static ArrayList<Mascota> readFile2(String nombre){
+        ArrayList<Mascota> mascotas= new ArrayList<>();
+
+        try {
+            FileReader reader = new FileReader(nombre);
+            BufferedReader br = new BufferedReader(reader);
+            
+        
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] datos = line.split("\\|"); 
+                //Mascota( int id,String nombre, String raza, String tipo, LocalDate fechaNacimiento, int idDueño)
+                Mascota mascota= new Mascota(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],LocalDate.parse(datos[4]),Integer.parseInt(datos[5]));
+                mascotas.add(mascota); 
+
+            }
+            reader.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return mascotas;
+    }
+    
+    
+    /***************************/
     
     /**************************************************/
     public static Mascota nextMascota(Scanner sc){
