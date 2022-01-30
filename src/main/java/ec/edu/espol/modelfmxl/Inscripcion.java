@@ -4,17 +4,20 @@ package ec.edu.espol.modelfmxl;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Inscripcion {
+public class Inscripcion implements Serializable {
     private int id;
     private LocalDate fecha_inscripcion;
     private double valor;
@@ -116,7 +119,7 @@ public class Inscripcion {
             bw.newLine();
             
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("FALLO saveFile");
         }
        
        
@@ -148,7 +151,7 @@ public class Inscripcion {
             }
         }
         catch(IOException e){
-            System.out.println(e.getMessage());
+            System.out.println("FALLO void saveFile");
         }
     }
     
@@ -186,24 +189,32 @@ public class Inscripcion {
     }
     
     
+    /*****************************************************/
     
     
-    public static ArrayList<Inscripcion> readFile(String nombre){
+    public static ArrayList<Inscripcion> readFile(String nomfile){
         ArrayList<Inscripcion> inscripciones= new ArrayList<>();
-        try (Scanner sc =new Scanner(new File (nombre))){
-            while(sc.hasNextLine()){
-                String linea= sc.nextLine();
-                String[] datos = linea.split("\\|"); 
+        try (
+            FileReader reader = new FileReader(nomfile);
+            BufferedReader br = new BufferedReader(reader);
+            )
+        {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] datos = line.split("\\|"); 
+                
                 Inscripcion ins = new Inscripcion(Integer.parseInt(datos[0]),LocalDate.parse(datos[1]), Double.parseDouble(datos[2]),Integer.parseInt(datos[3]),Integer.parseInt(datos[4]));                
                 inscripciones.add(ins);
             }
+            reader.close();
         }catch (Exception e){
-            //System.out.println("Se ha creado el archivo: "+ nombre);
+            e.printStackTrace();
         }
         return inscripciones;
+    
     }
     
-    
+    /*************************************************/
     
     
     public static Inscripcion nextInscripcion(Scanner sc){

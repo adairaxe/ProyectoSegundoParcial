@@ -240,27 +240,20 @@ public class Mascota {
     Scanner sc= new Scanner(System.in);
 
     
+    /******************************/
+    
     public static ArrayList<Mascota> readFile(String nombre){
-//        ArrayList<Mascota> mascotas= new ArrayList<>();
-//        try (Scanner sc =new Scanner(new File (nombre))){
-//            while(sc.hasNextLine()){
-//                String linea= sc.nextLine();
-//                String[] datos = linea.split("\\|"); 
-//                Mascota v= new Mascota(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],LocalDate.parse(datos[4]),Integer.parseInt(datos[5]));
-//                mascotas.add(v);                    
-//            } 
-//        }catch (Exception e){
-//            //System.out.println("Se ha creado el archivo: "+ nombre);
-//        }
-//        
-//        return mascotas;
         ArrayList<Mascota> mascotas= new ArrayList<>();
+
         try {
             FileReader reader = new FileReader(nombre);
-            BufferedReader bufferedReader = new BufferedReader(reader);
+            BufferedReader br = new BufferedReader(reader);
+            
+        
             String line;
-            while ((line = bufferedReader.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 String[] datos = line.split("\\|"); 
+
                 //String[] datos2 = datos[1].split(";");
                 Mascota v;
                 if(datos[6]!=null || datos[6]!=""){
@@ -272,17 +265,23 @@ public class Mascota {
 //                System.out.println(v);
 //                System.out.println(v.getRuta());
                 mascotas.add(v); 
+
+                
+                //Mascota( int id,String nombre, String raza, String tipo, LocalDate fechaNacimiento, int idDueño)
+//                Mascota mascota = new Mascota(Integer.parseInt(datos[0]), datos[1], datos[2], datos[3], 
+//                        LocalDate.parse(datos[4]), Integer.parseInt(datos[5]));                
+//                mascotas.add(mascota);
+////
             }
             reader.close();
         }catch (Exception e){
-            //System.out.println("Se ha creado el archivo: "+ nombre);
             e.printStackTrace();
         }
-        
         return mascotas;
     }
     
     
+    /**************************************************/
     public static Mascota nextMascota(Scanner sc){
         String nombre,raza,tipo;
         int id;

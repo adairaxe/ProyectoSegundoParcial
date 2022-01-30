@@ -10,6 +10,7 @@ import ec.edu.espol.modelfmxl.Inscripcion;
 import ec.edu.espol.modelfmxl.Util;
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -35,7 +36,7 @@ import javafx.stage.Stage;
  *
  * @author USER
  */
-public class InscripcionController implements Initializable {
+public class InscripcionController implements Initializable, Serializable {
 
     @FXML
     private TextField txtNombreMascota;
@@ -84,7 +85,6 @@ public class InscripcionController implements Initializable {
         int id_inscripcion = lista_inscripciones.size()+1;
         
         int id_mascota = Util.examinarIdMascota(txtNombreMascota.getText());
-
         if (id_mascota == 0){
             Alert alertaMascota = new Alert(AlertType.ERROR, "Revise si el nombre de su mascota es correcto");
             alertaMascota.show();
@@ -98,25 +98,39 @@ public class InscripcionController implements Initializable {
         }
         
         Alert alertfecha;         
-        LocalDate fecha_actual = LocalDate.parse(txtFechaInscripcion.getText());        
-        if (fecha_actual.isBefore(Util.fecha_inicio_concurso(id_concurso))){    
-            alertfecha = new Alert(AlertType.ERROR,"LA FECHA DE INSCRIPCION AUN NO COMIENZA");          
-        }       
-        else if(fecha_actual.isAfter(Util.fecha_cierre_concurso(id_mascota))){           
-            alertfecha = new Alert(AlertType.ERROR,"LA FECHA DE INSCRIPCION HA TERMINADO");
+        LocalDate fecha_actual = LocalDate.parse(txtFechaInscripcion.getText());  
+        try{
+            if (fecha_actual.isBefore(Util.fecha_inicio_concurso(id_concurso))){    
+            alertfecha = new Alert(AlertType.ERROR,"LA FECHA DE INSCRIPCION AUN NO COMIENZA");
+            alertfecha.show();
+            
+            }       
+            else if(fecha_actual.isAfter(Util.fecha_cierre_concurso(id_mascota))){           
+                alertfecha = new Alert(AlertType.ERROR,"LA FECHA DE INSCRIPCION HA TERMINADO");
+                alertfecha.show();
+            }
+            
+        }catch(Exception e){
+            Alert alertaFecha = new Alert(AlertType.ERROR,"Fallo LA FECHA");
+            alertaFecha.show();
+            
         }
+        
         
         Alert alertacosto;
         double precio_concurso = Double.parseDouble(txtTotalPagar.getText());
         if (precio_concurso > Util.exminarCostoConcurso(id_concurso)){
-            alertacosto = new Alert(AlertType.ERROR,"Usted está pagando de más"); 
+            alertacosto = new Alert(AlertType.ERROR,"Usted está pagando de más");
+            alertacosto.show();
         }
         else if(precio_concurso < Util.exminarCostoConcurso(id_concurso)){
-            alertacosto = new Alert(AlertType.ERROR,"El costo a pagar es de\n");           
+            alertacosto = new Alert(AlertType.ERROR,"El costo a pagar es de\n");  
+            alertacosto.show();
         }
         
         //Inscripcion(int id, LocalDate fecha_inscripcion, double valor, int idMascota,int idConcurso )
         Inscripcion inscripcion = new Inscripcion(id_inscripcion, fecha_actual, precio_concurso, id_mascota, id_concurso);
+        System.out.println("SE HA CREADO LA INSCRIPCION");
         inscripcion.saveFile("inscripcion.txt");
 
     }

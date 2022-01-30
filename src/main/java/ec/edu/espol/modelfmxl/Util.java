@@ -4,12 +4,15 @@ import static ec.edu.espol.modelfmxl.Concurso.readFromFile;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
-public class Util {
+public class Util implements Serializable{
     
     // el constructor se lo ha declarado privado
     // ya que esta clase solo va a contener comportamientos estáticos
@@ -44,8 +47,8 @@ public class Util {
     public static int next_idmascota(Scanner sc){
     System.out.println("Ingrese el nombre de su mascota: ");
     String nombre_mascota = sc.next();
-    ArrayList</*ec.edu.espol.model.*/Mascota> mascotas = /*ec.edu.espol.model.*/Mascota.readFile("mascotas.txt");
-    for (/*ec.edu.espol.model.*/Mascota m: mascotas){
+    ArrayList<Mascota> mascotas = Mascota.readFile("mascotas.txt");
+    for (Mascota m: mascotas){
         if (nombre_mascota.equals(m.getNombre())){
             return m.getId();
             }  
@@ -54,13 +57,19 @@ public class Util {
     }
     
    
+    
     public static int examinarIdMascota(String nombre_mascota){
-    ArrayList</*ec.edu.espol.model.*/Mascota> mascotas = /*ec.edu.espol.model.*/Mascota.readFile("mascotas.txt");
-    for (/*ec.edu.espol.model.*/Mascota m: mascotas){
+    ArrayList<Mascota> mascotas = Mascota.readFile("mascotas.txt");
+    try{
+        for (Mascota m: mascotas){
         if (nombre_mascota.equals(m.getNombre())){
             return m.getId();
             }  
-        }
+        }   
+    }catch(Exception e){
+        Alert a = new Alert(AlertType.ERROR,"FALLO ExaminarIdMascota");
+        a.show();
+    }
     return 0;
     }
     
@@ -127,8 +136,8 @@ public class Util {
    
         
     public static int examinarIdConcurso(String nombre_concurso){
-    ArrayList</*ec.edu.espol.model.*/Concurso> concursos = Concurso.readFromFile("concursos.txt");
-    for (/*ec.edu.espol.model.*/Concurso i: concursos){
+    ArrayList<Concurso> concursos = Concurso.readFromFile("concursos.txt");
+    for (Concurso i: concursos){
         if (nombre_concurso.equals(i.getNombre())){
             return i.getId();
             }  
@@ -139,8 +148,8 @@ public class Util {
     
     
     public static double exminarCostoConcurso(int id){
-        ArrayList</*ec.edu.espol.model.*/Concurso> concurso = /*ec.edu.espol.model.*/Concurso.readFromFile("concursos.txt");
-        for (/*ec.edu.espol.model.*/Concurso c: concurso){
+        ArrayList<Concurso> concurso =Concurso.readFromFile("concursos.txt");
+        for (Concurso c: concurso){
             if (id==c.getId()){
                 return c.getCosto();
             }  
