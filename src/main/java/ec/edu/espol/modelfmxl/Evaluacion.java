@@ -1,8 +1,11 @@
 package ec.edu.espol.modelfmxl;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -93,25 +96,33 @@ public class Evaluacion {
     }
     
     
-    public static ArrayList<Evaluacion> readFile(String evaluacionefield){
-        ArrayList<Evaluacion> evaluaciones = new ArrayList<>();
-        try (Scanner sc = new Scanner(new File(evaluacionefield))){
-            while(sc.hasNextLine())
-            {                
-                // linea = id|nota|idInscripcion|idMiembroJurado|idCriterio
-                String linea = sc.nextLine();                
-                String[] tokens = linea.split("\\|");
-                // int id, nota, idInscripcion, idMiembroJurado, idCriterio
-                Evaluacion evalu = new Evaluacion(Integer.parseInt(tokens[0]),
-                        Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),
-                        Integer.parseInt(tokens[3]),Integer.parseInt(tokens[4]));
-                evaluaciones.add(evalu);
-            }            
-        }catch(Exception e) {
-            //System.out.println("No hay archivo de evaluacion ");
+    /*****************************************/
+    
+    
+    
+    public static ArrayList<Evaluacion> readFile(String nomfile){
+    ArrayList<Evaluacion> evaluaciones = new ArrayList<>();
+    try (
+        FileReader reader = new FileReader(nomfile);
+        BufferedReader br = new BufferedReader(reader);
+        )
+    {
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] datos = line.split("\\|"); 
+            //Evaluacion(int id, int idMiembroJurado, int idInscripcion, int idCriterio, int nota)
+            Evaluacion evaluacion = new Evaluacion(Integer.parseInt(datos[0]), Integer.parseInt(datos[1]), Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),Integer.parseInt(datos[4]));                
+            evaluaciones.add(evaluacion);
         }
-        return evaluaciones;
+        reader.close();
+    }catch (Exception e){
+        System.out.println("EL ARCHIVO NO EXISTE");;
     }
+    return evaluaciones;
+    
+    }
+        
+        /********************************/
     
     
     public static Evaluacion nextEvaluacion(Scanner sc){     
