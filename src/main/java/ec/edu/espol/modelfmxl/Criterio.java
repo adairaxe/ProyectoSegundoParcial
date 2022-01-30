@@ -123,17 +123,27 @@ public class Criterio {
        }catch(Exception e){
            //System.out.println(e.getMessage());
        }  */
-        try 
-           (
+        try {
             FileWriter writer = new FileWriter(nomfile, true);
-            BufferedWriter  bw  = new BufferedWriter (writer);   
-            )    
-            {
-            bw.write(this.id + "|"+ this.nombre+ "|" + this.descripcion + "|"+ this.punt_max+ "|"+ this.idConcurso+ "|");
+            BufferedWriter  bw  = new BufferedWriter (writer);
+            bw.write((String.valueOf(this.getId())));
+            bw.write("|");
+            bw.write(this.nombre);
+            bw.write("|");
+            bw.write(this.descripcion);
+            bw.write("|");
+            bw.write((String.valueOf(this.punt_max)));
+            bw.write("|");
+            bw.write((String.valueOf(this.idConcurso)));
+            bw.write("|");
+            //bw.write(this.id + "|"+ this.nombre+ "|" + this.descripcion + "|"+ this.punt_max+ "|"+ this.idConcurso+ "|");
             for (Evaluacion m: this.getEvaluaciones()){
-                bw.write(m.getId() + ";");
-           }
+                //bw.write(m.getId() + ";");
+                bw.write(String.valueOf((m.getId())));
+                bw.write(";");
+            }
              bw.newLine();
+             bw.close();
        }catch (IOException e){
            System.out.println(e.getMessage());
        }
@@ -248,7 +258,8 @@ public class Criterio {
             id=id+1;
             }
             do{
-            id_concurso = Util.next_idconcurso(sc);
+//            id_concurso = Util.next_idconcurso(nombre);
+            id_concurso=0;
             if (id_concurso != 0){
                 for ( Criterio c1:  lista_criterios_1){
                     Criterio crit2 = new Criterio(c1.getId(),c1.getNombre(), c1.getDescripcion(), c1.getPunt_max(), id_concurso);  
@@ -258,6 +269,10 @@ public class Criterio {
             }
             }while(id_concurso==0);           
         return lista_criterios_1;
-        }    
-    }
+        }
+    public static int obtenerId(){
+        ArrayList<Criterio> criterios = readFromFile("criterios.txt");
+        return criterios.size()+1; 
+    }   
+}
 

@@ -180,5 +180,15 @@ public class Util implements Serializable{
         return null;       
     }
     ////////////////////////////////////////////////
+    public static int next_idconcurso(String concurso){
+   
+    ArrayList<Concurso> concursos = Concurso.readFromFile("concurso.txt");
+    for (/*ec.edu.espol.model.*/Concurso i: concursos){
+        if (concurso.equals(i.getNombre())){
+            return i.getId();
+            }  
+        }
+    return 0;
+    }
 }
 
