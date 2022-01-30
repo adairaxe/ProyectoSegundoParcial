@@ -154,6 +154,17 @@ public class Util implements Serializable{
     }
     
     
+    public static Criterio examinarCriterioPorNombre(String nomCriterio){
+    ArrayList<Criterio> lista_criterios = Criterio.readFromFile("criterios.txt");
+    for (Criterio criterio: lista_criterios){
+        if (nomCriterio.equals(criterio.getNombre())){
+            return criterio;
+        }  
+    }
+    return null;
+    }
+    
+    
     /*********************************/
     
     
@@ -187,7 +198,7 @@ public class Util implements Serializable{
     return 0;
     }
     
-    
+
     
     public static double exminarCostoConcurso(int id){
         ArrayList<Concurso> concurso =Concurso.readFromFile("concurso.txt");
@@ -222,7 +233,7 @@ public class Util implements Serializable{
         return null;       
     }
     ////////////////////////////////////////////////
-<<<<<<< HEAD
+
     public static int next_idconcurso(String concurso){
    
     ArrayList<Concurso> concursos = Concurso.readFromFile("concurso.txt");
@@ -233,8 +244,7 @@ public class Util implements Serializable{
         }
     return 0;
     }
-=======
-    
+
     
     
     /****************** MIEMBRO JURADO ********************/
@@ -249,7 +259,6 @@ public class Util implements Serializable{
         }
         return 0;
     }
-    
->>>>>>> 5f231e853f5b763b78ff56bdbea6cf26aab7499b
+
 }
 

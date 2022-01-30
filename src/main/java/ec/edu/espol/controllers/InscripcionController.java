@@ -83,10 +83,8 @@ public class InscripcionController implements Initializable, Serializable {
     @FXML
     private void guardarInscripcion(MouseEvent event) {
         ArrayList<Inscripcion> lista_inscripciones = Inscripcion.readFile("inscripcion.txt");
-        
-        System.out.println("AQUI INICIA");
-        System.out.println(Mascota.readFile("mascotas.txt").size());      
-        System.out.println("AQUI DEBERIA LLEGAR PARWA DESCARTAR EL readFile de mascotas");
+        System.out.println(lista_inscripciones);
+
         
         int id_inscripcion = lista_inscripciones.size()+1;      
         int id_mascota = Util.examinarIdMascota(txtNombreMascota.getText());   
@@ -119,7 +117,7 @@ public class InscripcionController implements Initializable, Serializable {
                 System.out.println("SE HA CREADO LA INSCRIPCION");
                 inscripcion.saveFile("inscripcion.txt");
                 limpiar(event);
-                Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                Alert a5= new Alert(Alert.AlertType.INFORMATION, "Inscripcion registrada con exito" );
                 a5.show();
             }else{
                 Alert alertCostoFecha = new Alert(AlertType.ERROR, "Revise el periodo de inscripcion y el costo del concurso");

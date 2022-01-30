@@ -39,30 +39,14 @@ public class CriterioController {
     @FXML
     private HBox btnLimpiar;
     @FXML
-    private VBox vdatos;
+    private TextField txNombreConcurso;
     @FXML
-    private TextField txtConcurso;
+    private TextField txNombreCriterio;
     @FXML
-    private TextField txtCantidad;
+    private TextField txDescripcion;
     @FXML
-    private Label txtcontador;
-    @FXML
-    private TextField txtNombre;
-    @FXML
-    private TextField txtDescripcion;
-    @FXML
-    private TextField txtPuntaje;
-    @FXML
-    private Button btnEmpezarcontar;
-    @FXML
-    private VBox eliminar;
-    private int  cantidad;
-    private String nombreConcurso;
-    @FXML
-    private HBox cerrar;
-    @FXML
-    private VBox hvGuardarCriterio;
-    private ArrayList<Criterio> criterios= new ArrayList<>();;
+    private TextField txtPuntajeMaximo;
+    
     @FXML
     private void regresar(MouseEvent event) throws IOException {
         FXMLLoader loader = App.loadFXML("menu");
@@ -72,81 +56,55 @@ public class CriterioController {
 
     @FXML
     private void guardar(MouseEvent event) {
-        if (nombreConcurso==""|| cantidad!=0){
-            if(criterios.size()==cantidad){
-//                for(Criterio c: criterios){
-//                    c.saveFile("criterios.txt");
-//                }
-            }else{
-                Alert a1= new Alert(AlertType.ERROR,"Termine de Ingresar todos los Criterios");
-                a1.show();
-            }
-        } else {
-            Alert a= new Alert(AlertType.ERROR,"Primero debe ingresar nombreConcurso y Cantidad");
-            a.show();
+        ArrayList<Criterio> listaCriterios = Criterio.readFromFile("criterios.txt");
+        System.out.println("Inicia");
+        
+        Alert alerta;
+        
+            //Criterio(int id, String nombre, String descripcion, int punt_max, int idConcurso)
+            int idConcurso = Util.examinarIdConcurso(txNombreConcurso.getText());     
+            System.out.println(idConcurso);
             
-        }
-        
-        
+            int idCriterio =  listaCriterios.size()+1;
+            System.out.println(idCriterio);
+            
+            String nombreCriterio = txNombreCriterio.getText();
+            System.out.println(nombreCriterio);
+            
+            String descripcion = txDescripcion.getText();
+            System.out.println(descripcion);
+            
+            int puntaje = Integer.parseInt(txtPuntajeMaximo.getText());
+            System.out.println(puntaje);
+
+            if (idConcurso != 0){
+                
+                Criterio criterio= new Criterio(idCriterio, nombreCriterio, descripcion, puntaje, idConcurso);
+                System.out.println(criterio);
+                
+                criterio.saveFile("criterios.txt");
+                alerta = new Alert(AlertType.CONFIRMATION,"Su criterio ha sido creado con exito");
+                alerta.show();
+                
+                txNombreConcurso.setText("");
+                txNombreCriterio.setText("");
+                txDescripcion.setText("");
+                txtPuntajeMaximo.setText("");
+                
+                
+            }else{
+                alerta = new Alert(AlertType.ERROR,"Concurso no encontrado");
+                alerta.show();
+            }
+
     }
 
     @FXML
     private void limpiar(MouseEvent event) {
-        
     }
 
-    @FXML
-    private void guardarCriterio(ActionEvent event) {
-        Criterio criterio;
-        
-        try{
-            String nombre = txtNombre.getText();
-            String descripcion = txtDescripcion.getText();
-            int puntaje = Integer.parseInt(txtPuntaje.getText());
-            //(int id, String nombre, String descripcion, int punt_max, int idConcurso)
-            int idconcurso = Util.next_idconcurso(nombreConcurso);
-            
-            
-            criterio= new Criterio (Criterio.obtenerId(),nombre,descripcion,puntaje,idconcurso);
-            criterio.saveFile("criterios.txt");
-            criterios.add(criterio);
-        }catch (Exception ex){
-            Alert a1= new Alert (AlertType.ERROR,"Ingreso de forma incorecta");
-            
-        }
-        int posicion=Integer.parseInt(txtcontador.getText());
-        posicion=posicion+1;
-        if(posicion<=cantidad){
-            txtcontador.setText(String.valueOf(posicion));
-        }
-        else{
-            hvGuardarCriterio.getChildren().clear();
-        }
-        txtNombre.setText("");
-        txtDescripcion.setText("");
-        txtPuntaje.setText("");
-        
-    }
 
-    @FXML
-    private void Contador(ActionEvent event) {
-        try{
-            String nombre= txtConcurso.getText();
-            int cantidad= Integer.parseInt(txtCantidad.getText());
-            int i=0;
-            if (i<=cantidad){
-                i=i+1;
-                txtcontador.setText(String.valueOf(i));
-                eliminar.getChildren().clear();
-                this.cantidad=cantidad;
-                this.nombreConcurso=nombre;
-                
-            }
-        }catch (Exception ex){
-            Alert a1= new Alert (AlertType.ERROR,"Ingreso de IDConcurso o Cantidad de Criterios de forma incorecta");
-            
-        }
-        
-    }
+
+
     
 }

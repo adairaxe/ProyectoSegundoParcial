@@ -1,11 +1,14 @@
 package ec.edu.espol.modelfmxl;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -114,19 +117,10 @@ public class Criterio {
     
     
     public void saveFile (String nomfile){
-        /*
-       try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(criteriofield),true))){
-           pw.println(this.id + "|"+ this.nombre+ "|" + this.descripcion + "|"+ this.punt_max+ "|"+ this.idConcurso+ "|");
-            for (Evaluacion m: this.getEvaluaciones()){
-                pw.println(m.getId() + ";");
-            }
-       }catch(Exception e){
-           //System.out.println(e.getMessage());
-       }  */
         try {
             FileWriter writer = new FileWriter(nomfile, true);
             BufferedWriter  bw  = new BufferedWriter (writer);
-            bw.write((String.valueOf(this.getId())));
+            bw.write(this.getId());
             bw.write("|");
             bw.write(this.nombre);
             bw.write("|");
@@ -134,14 +128,9 @@ public class Criterio {
             bw.write("|");
             bw.write((String.valueOf(this.punt_max)));
             bw.write("|");
-            bw.write((String.valueOf(this.idConcurso)));
-            bw.write("|");
+            bw.write((String.valueOf(this.idConcurso)));           
             //bw.write(this.id + "|"+ this.nombre+ "|" + this.descripcion + "|"+ this.punt_max+ "|"+ this.idConcurso+ "|");
-            for (Evaluacion m: this.getEvaluaciones()){
-                //bw.write(m.getId() + ";");
-                bw.write(String.valueOf((m.getId())));
-                bw.write(";");
-            }
+
              bw.newLine();
              bw.close();
        }catch (IOException e){
@@ -149,6 +138,9 @@ public class Criterio {
        }
     }
 
+    
+    
+    
     public static void saveFile(ArrayList<Criterio> listacriterios, String nomfile){
         /*
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(criteriofield),true))){
@@ -210,25 +202,34 @@ public class Criterio {
             }
     }
     
-    public static ArrayList<Criterio> readFromFile(String criteriofield){
-        ArrayList<Criterio> criterios = new ArrayList<>();
-        try (Scanner sc = new Scanner(new File(criteriofield)))
+    
+    
+    public static ArrayList<Criterio> readFromFile(String nomfile){
+        ArrayList<Criterio> criterios= new ArrayList<>();
+        try (
+            FileReader reader = new FileReader(nomfile);
+            BufferedReader br = new BufferedReader(reader);
+            )
         {
-            while(sc.hasNextLine())
-            {
-                // linea = id|nombre|descripcion|punt_max|idConcurso
-                String linea = sc.nextLine();
-                String[] tokens = linea.split("\\|");
-                // int id, int punt_max,int, int idConcurso ,String nombre ,int descripcion
-                Criterio crit = new Criterio(Integer.parseInt(tokens[0]),(tokens[1]),tokens[2],Integer.parseInt(tokens[3]),Integer.parseInt(tokens[4]));
-                criterios.add(crit);
-            }           
-        }catch(Exception e) {
-            //System.out.println("Se ha creado el archivo: " + criteriofield);
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] datos = line.split("\\|"); 
+                
+                //Criterio(int id, String nombre, String descripcion, int punt_max, int idConcurso)
+                Criterio criterio = new Criterio(Integer.parseInt(datos[0]), datos[1], datos[2],Integer.parseInt(datos[3]),Integer.parseInt(datos[4]));                
+                criterios.add(criterio);
+            }
+            reader.close();
+        }catch (Exception e){
+            System.out.println("EL ARCHIVO NO EXISTE");;
         }
         return criterios;
+    
     }
        
+    
+    
+
     public static ArrayList<Criterio> nextCriterio(Scanner sc){
         int id=0,punt_max, id_concurso, cantidad, contador = 0; ;
         String nombre, descripcion;

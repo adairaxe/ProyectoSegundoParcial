@@ -102,16 +102,6 @@ public class Inscripcion implements Serializable {
     
     
     public void saveFile (String inscripcionesfield){
-        /*try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(inscripcionesfield),true))){
-           pw.println(this.id + "|"+ this.fecha_inscripcion+ "|" + this.valor + "|"+ this.idMascota + "|"+ this.idConcurso + "|");
-           for (Evaluacion m: this.getEvaluacion()){
-                pw.println(m.getId() + ";");
-           }
-        }catch(Exception e){
-           //System.out.println(e.getMessage());
-       }*/
-        
-        
         try(BufferedWriter  bw  = new BufferedWriter (new FileWriter(inscripcionesfield, true)))
         {
             //Inscripcion(int id, LocalDate fecha_inscripcion, double valor, int idMascota,int idConcurso )
