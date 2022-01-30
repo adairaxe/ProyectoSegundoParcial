@@ -45,7 +45,7 @@
    <top>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="278.0" style="-fx-background-color: verde;" text="MENU DE OPCIONES" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
    </top>

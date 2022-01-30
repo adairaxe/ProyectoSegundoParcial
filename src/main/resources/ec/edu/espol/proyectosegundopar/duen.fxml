@@ -11,9 +11,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.DuenController">
    <top>
-      <Label alignment="CENTER" prefHeight="38.0" prefWidth="79.0" text="Dueño" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" prefHeight="38.0" prefWidth="79.0" style="-fx-background-color: c;" text="Dueño" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
          <BorderPane.margin>
             <Insets top="30.0" />
@@ -23,11 +23,26 @@
    <left>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="223.0" prefWidth="134.0" spacing="18.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="115.0" text="Nombre" />
-            <Label alignment="CENTER" prefHeight="10.0" prefWidth="115.0" text="Apellido" />
-            <Label alignment="CENTER" prefHeight="10.0" prefWidth="115.0" text="Telefono" />
-            <Label alignment="CENTER" prefHeight="10.0" prefWidth="115.0" text="Email" />
-            <Label alignment="CENTER" prefHeight="0.0" prefWidth="115.0" text="Dirección" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="115.0" style="-fx-background-color: v;" text="Nombre">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="10.0" prefWidth="115.0" style="-fx-background-color: c;" text="Apellido">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="10.0" prefWidth="115.0" style="-fx-background-color: c;" text="Telefono">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="10.0" prefWidth="115.0" style="-fx-background-color: v;" text="Email">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="0.0" prefWidth="115.0" style="-fx-background-color: d;" text="Dirección">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
          </children>
       </VBox>
    </left>
@@ -37,7 +52,7 @@
             <TextField fx:id="textNombre" prefHeight="18.0" prefWidth="500.0" />
             <TextField fx:id="textApellido" prefHeight="18.0" prefWidth="466.0" />
             <TextField fx:id="textTelefono" prefHeight="18.0" prefWidth="466.0" />
-            <TextField fx:id="txtEmail" prefHeight="18.0" prefWidth="466.0" />
+            <TextField fx:id="txtEmail" prefHeight="18.0" prefWidth="466.0" promptText="ejemplo@xmail.com" />
             <TextField fx:id="textDireccion" prefHeight="18.0" prefWidth="466.0" />
          </children></VBox>
    </center>

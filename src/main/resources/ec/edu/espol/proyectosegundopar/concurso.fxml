@@ -11,9 +11,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.ConcursoController">
    <top>
-      <Label alignment="CENTER" prefHeight="30.0" prefWidth="100.0" text="Concurso" BorderPane.alignment="BOTTOM_CENTER">
+      <Label alignment="CENTER" prefHeight="35.0" prefWidth="151.0" style="-fx-background-color: v;" text="Concurso" BorderPane.alignment="BOTTOM_CENTER">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
          <BorderPane.margin>
             <Insets top="30.0" />
@@ -21,18 +21,36 @@
       </Label>
    </top>
    <left>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="168.0" spacing="17.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="187.0" spacing="17.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Nombre:">
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" style="-fx-background-color: verde;" text="Nombre:">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="156.0" text="Fecha:" />
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Fecha de inscripción:" />
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Fecha cierre de inscripción:" />
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Temática:" />
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="Costo:" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="156.0" style="-fx-background-color: verde;" text="Fecha:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" style="-fx-background-color: verde;" text="Fecha de inscripción:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="179.0" style="-fx-background-color: verde;" text="Fecha cierre de inscripción:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" style="-fx-background-color: v;" text="Temática:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" style="-fx-background-color: v;" text="Costo:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
          </children>
          <BorderPane.margin>
             <Insets />
@@ -40,12 +58,12 @@
       </VBox>
    </left>
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="397.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="txNombre" prefHeight="21.0" prefWidth="419.0" />
-            <TextField fx:id="txFecha" />
-            <TextField fx:id="txFechaIns" />
-            <TextField fx:id="txFechaCierre" />
+            <TextField fx:id="txFecha" promptText="YYYY-MM-DD" />
+            <TextField fx:id="txFechaIns" promptText="YYYY-MM-DD" />
+            <TextField fx:id="txFechaCierre" promptText="YYYY-MM-DD" />
             <TextField fx:id="txTema" />
             <TextField fx:id="txCosto" />
          </children>

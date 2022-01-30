@@ -11,9 +11,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.PremioController">
    <top>
-      <Label alignment="CENTER" prefHeight="30.0" prefWidth="79.0" text="Premio" BorderPane.alignment="BOTTOM_CENTER">
+      <Label alignment="CENTER" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: f;" text="Premio" BorderPane.alignment="BOTTOM_CENTER">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
          <BorderPane.margin>
             <Insets top="30.0" />
@@ -23,12 +23,18 @@
    <left>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="168.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="144.0" text="Lugar:">
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="144.0" style="-fx-background-color: v;" text="Lugar:">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="143.0" text="Descripción:" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="143.0" style="-fx-background-color: v;" text="Descripción:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
          </children>
          <BorderPane.margin>
             <Insets />
@@ -38,7 +44,7 @@
    <center>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txLugar" />
+            <TextField fx:id="txLugar" promptText="########" />
             <TextField fx:id="txDescripcion" />
          </children>
       </VBox>

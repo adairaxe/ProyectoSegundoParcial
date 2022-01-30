@@ -11,9 +11,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../img/mycss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controllers.EvaluacionController">
    <top>
-      <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="30.0" text="Evaluación" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="30.0" style="-fx-background-color: v;" text="Evaluación" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
          <BorderPane.margin>
             <Insets top="30.0" />
@@ -32,13 +32,22 @@
    <left>
       <VBox alignment="CENTER" prefHeight="235.0" prefWidth="177.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="TEXTO 1">
+            <Label style="-fx-background-color: d;" text="TEXTO 1">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Label>
-            <Label text="TEXTO 2 " />
-            <Label text="TEXTO 3" />
+            <Label style="-fx-background-color: v;" text="TEXTO 2 ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label style="-fx-background-color: v;" text="TEXTO 3">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
          </children>
          <BorderPane.margin>
             <Insets left="20.0" />

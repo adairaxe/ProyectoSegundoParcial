@@ -13,7 +13,7 @@
    <top>
       <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="30.0" style="-fx-background-color: verde;" text="Inscripción" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
          <BorderPane.margin>
             <Insets top="30.0" />
@@ -72,7 +72,7 @@
                </VBox.margin>
             </TextField>
             <TextField fx:id="txtNombreConcurso" prefWidth="367.0" />
-            <TextField fx:id="txtFechaInscripcion" />
+            <TextField fx:id="txtFechaInscripcion" promptText="YYYY-MM-DD" />
             <TextField fx:id="txTotalPagar" />
          </children>
          <BorderPane.margin>
