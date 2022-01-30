@@ -23,6 +23,14 @@
    <left>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="168.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="144.0" style="-fx-background-color: v;" text="Nombre Concurso">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
             <Label alignment="CENTER" prefHeight="18.0" prefWidth="144.0" style="-fx-background-color: v;" text="Lugar:">
                <opaqueInsets>
                   <Insets />
@@ -44,6 +52,7 @@
    <center>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
+            <TextField fx:id="txtIdConcurso" />
             <TextField fx:id="txLugar" promptText="########" />
             <TextField fx:id="txDescripcion" />
          </children>

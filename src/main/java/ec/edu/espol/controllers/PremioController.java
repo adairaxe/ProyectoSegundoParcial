@@ -7,6 +7,7 @@ package ec.edu.espol.controllers;
 
 import ec.edu.espol.modelfmxl.Concurso;
 import ec.edu.espol.modelfmxl.Duen;
+import ec.edu.espol.modelfmxl.Mascota;
 import ec.edu.espol.modelfmxl.Premio;
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
@@ -42,6 +43,8 @@ public class PremioController implements Initializable {
     private TextField txLugar;
     @FXML
     private TextField txDescripcion;
+    @FXML
+    private TextField txtIdConcurso;
 
     /**
      * Initializes the controller class.
@@ -64,12 +67,20 @@ public class PremioController implements Initializable {
         int id_premio = lista_concursos.size()+1;
         try
         {
+            String nombreConcurso= txtIdConcurso.getText();
             String lugar= txLugar.getText();
             String descripcion= txDescripcion.getText();
+            int idConcurso=0;
+            ArrayList<Concurso> concursos = Concurso.readFromFile("concurso.txt");
+            for(    Concurso m:concursos){
+                if (m.getNombre().equals(nombreConcurso)){
+                    idConcurso= idConcurso+m.getId();
+                }
+            }
             
-            if (lugar!="" || descripcion !="")
+            if (lugar!="" || descripcion !=""|| nombreConcurso !="")
             {
-                Premio premio = new Premio(id_premio,Integer.parseInt(lugar),descripcion);    
+                Premio premio = new Premio(id_premio,Integer.parseInt(lugar),descripcion,idConcurso);    
                 premio.saveFile("premio.txt");
                 limpiar(event);
                 Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
@@ -86,6 +97,7 @@ public class PremioController implements Initializable {
     private void limpiar(MouseEvent event) {
         txLugar.clear();
         txDescripcion.clear();
+        txtIdConcurso.clear();
     }
     
 }
