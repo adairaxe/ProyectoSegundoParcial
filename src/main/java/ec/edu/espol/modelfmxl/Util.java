@@ -109,7 +109,7 @@ public class Util implements Serializable{
     
     
     public static int examinarIdInscripcion(int id){
-        ArrayList<Inscripcion> inscripciones = Inscripcion.readFile("inscripciones.txt");
+        ArrayList<Inscripcion> inscripciones = Inscripcion.readFile("inscripcion.txt");
         for (Inscripcion d: inscripciones){
             if (id==d.getId()){
                 return d.getId();

@@ -54,14 +54,25 @@ public class EvaluacionController {
 
     @FXML
     private void guardarEvaluacion(MouseEvent event) {
+        System.out.println("INICIA");
         ArrayList<Evaluacion> lista_evaluaciones = Evaluacion.readFile("evaluaciones.txt");
+        System.out.println("PASO READFILE");
        
         //Evaluacion(int id, int idMiembroJurado, int idInscripcion, int idCriterio, int nota)
         int idEvaluacion = lista_evaluaciones.size()+1;
+        System.out.println(idEvaluacion);
+        
         int idMiembroJurado = Util.examinarIdMiembroJurado(txCorreo.getText());
+        System.out.println(idMiembroJurado);
+        
         int idInscripcion = Util.examinarIdInscripcion(Integer.parseInt(txidInscripcion.getText()));
+        System.out.println(idInscripcion);
+  
         int idCriterio = Util.examinarCriterio(Integer.parseInt(txidCriterio.getText())).getId();
+        System.out.println(idCriterio);
+        
         int nota = Integer.parseInt(txNota.getText());
+        System.out.println(nota);
         
         int notaMaxima = Util.examinarCriterio(Integer.parseInt(txidCriterio.getText())).getPunt_max();
         

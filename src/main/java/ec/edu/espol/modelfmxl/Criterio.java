@@ -120,7 +120,7 @@ public class Criterio {
         try {
             FileWriter writer = new FileWriter(nomfile, true);
             BufferedWriter  bw  = new BufferedWriter (writer);
-            bw.write(this.getId());
+            bw.write(String.valueOf(this.getId()));
             bw.write("|");
             bw.write(this.nombre);
             bw.write("|");

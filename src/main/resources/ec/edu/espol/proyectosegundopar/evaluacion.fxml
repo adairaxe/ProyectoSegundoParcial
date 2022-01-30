@@ -44,7 +44,7 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Label style="-fx-background-color: v;" text="Criterio:">
+            <Label style="-fx-background-color: v;" text="id de Criterio:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
