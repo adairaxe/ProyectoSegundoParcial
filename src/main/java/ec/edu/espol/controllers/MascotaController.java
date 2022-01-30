@@ -135,6 +135,7 @@ public class MascotaController implements Initializable {
         txFechaNacimeinto.clear();
         txtIDDueño.clear();
         mascota.setImage(null);
+        
     }
 
     @FXML

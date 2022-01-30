@@ -7,26 +7,35 @@ package ec.edu.espol.controllers;
 
 import ec.edu.espol.modelfmxl.Evaluacion;
 import ec.edu.espol.modelfmxl.Inscripcion;
+import ec.edu.espol.modelfmxl.Mascota;
 import ec.edu.espol.modelfmxl.Util;
 import ec.edu.espol.proyectosegundopar.App;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
  *
  * @author angel
  */
-public class EvaluacionController {
+public class EvaluacionController implements Initializable{
 
     @FXML
     private Button btnRegresar;
@@ -40,6 +49,27 @@ public class EvaluacionController {
     private TextField txidCriterio;
     @FXML
     private TextField txNota;
+    @FXML
+    private ComboBox<String> cbmascotas;
+    @FXML
+    private VBox mostrarImagen;
+    @FXML
+    private ImageView imvMascota;
+    
+    public void initialize(URL url, ResourceBundle rb) {
+        //LEER LOS DATOS DE LAS CATEGORIAS Y CARGARLOS AL COMOBOBOX
+        try{
+            ArrayList<Mascota> mascotas = Mascota.readFile("mascotas.txt");
+            ArrayList<String> nombres= new ArrayList();
+            for(Mascota m:mascotas){
+                nombres.add(m.getNombre());
+            }
+            cbmascotas.getItems().addAll(nombres);
+//            cbmascotas.setOn
+        }catch(Exception ex){
+            ex.printStackTrace();
+        } 
+    }
 
     @FXML
     private void regresar(MouseEvent event) throws IOException {
@@ -50,6 +80,12 @@ public class EvaluacionController {
 
     @FXML
     private void limpiar(MouseEvent event) {
+        txidInscripcion.clear();
+        txCorreo.clear();
+        txidCriterio.clear();
+        txNota.clear();
+        imvMascota.setImage(null);
+        cbmascotas.setValue("");
     }
 
     @FXML
@@ -63,12 +99,9 @@ public class EvaluacionController {
         System.out.println(idEvaluacion);
         
         int idMiembroJurado = Util.examinarIdMiembroJurado(txCorreo.getText());
-<<<<<<< HEAD
+
         System.out.println(idMiembroJurado);
-        
-=======
         System.out.println("idMiembroJurado"+idMiembroJurado);
->>>>>>> 86c5dacc8d0eb0d0f8dcf7f477962c9215bd4dbc
         int idInscripcion = Util.examinarIdInscripcion(Integer.parseInt(txidInscripcion.getText()));
         System.out.println(idInscripcion);
   
@@ -110,6 +143,23 @@ public class EvaluacionController {
             alerta.show();   
         }
         
+    }
+
+    @FXML
+    private void mostrarImagenMascota(ActionEvent event) {
+        //imvMascota.setImage(new Image(""));
+        String seleccionado= cbmascotas.getValue();
+        ArrayList<Mascota> mascotas = Mascota.readFile("mascotas.txt");
+        Image imv;
+        String ruta;
+        
+        for(Mascota m:mascotas){
+            if (m.getNombre().equals(seleccionado)){
+                ruta= m.getRuta();
+                imv= new Image(ruta);
+                imvMascota.setImage(imv);
+            }
+        }
     }
     
 }

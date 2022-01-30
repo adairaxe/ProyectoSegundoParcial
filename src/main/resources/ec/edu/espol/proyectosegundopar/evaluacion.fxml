@@ -2,8 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -30,8 +32,13 @@
       </HBox>
    </bottom>
    <left>
-      <VBox alignment="CENTER" prefHeight="235.0" prefWidth="177.0" spacing="40.0" BorderPane.alignment="CENTER_RIGHT">
+      <VBox alignment="CENTER" prefHeight="245.0" prefWidth="145.0" spacing="40.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
+            <Label style="-fx-background-color: d;" text="ID mascota">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
             <Label style="-fx-background-color: d;" text="Correo:">
                <VBox.margin>
                   <Insets />
@@ -71,6 +78,7 @@
             <Insets left="20.0" right="20.0" />
          </padding>
          <children>
+            <ComboBox fx:id="cbmascotas" onAction="#mostrarImagenMascota" prefWidth="150.0" />
             <TextField fx:id="txCorreo" />
             <TextField fx:id="txidInscripcion" />
             <TextField fx:id="txidCriterio" />
@@ -78,4 +86,11 @@
          </children>
       </VBox>
    </center>
+   <right>
+      <VBox fx:id="mostrarImagen" prefHeight="255.0" prefWidth="124.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="imvMascota" fitHeight="150.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+   </right>
 </BorderPane>
