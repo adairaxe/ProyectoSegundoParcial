@@ -250,7 +250,7 @@ public class Util implements Serializable{
     /****************** MIEMBRO JURADO ********************/
     
     public static int examinarIdMiembroJurado(String emailMiembroJurado){
-        ArrayList<MiembroJurado>  miembros =  MiembroJurado.readFile("miembroJurados.txt");     
+        ArrayList<MiembroJurado>  miembros =  MiembroJurado.readFile("miembroJurado.txt");     
         for (MiembroJurado m: miembros){
             if(emailMiembroJurado.equals(m.getEmail()))
             {
