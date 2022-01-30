@@ -335,5 +335,16 @@ public class Mascota {
     }
 
     
-    
+    public static Boolean idDuenMascota(int  idDuen){
+        
+        
+        ArrayList<Duen> dueños = Duen.readFile("duenos.txt");
+        for (Duen d: dueños){
+            if (idDuen == d.getId()){
+               
+                return true;
+            }  
+        }
+        return false; 
+    }
 }
