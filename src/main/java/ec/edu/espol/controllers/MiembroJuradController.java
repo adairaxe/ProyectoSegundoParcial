@@ -68,6 +68,7 @@ public class MiembroJuradController implements Initializable {
     private void guardando(MouseEvent event) {
         ArrayList< MiembroJurado> lista_JURADOS = MiembroJurado.readFile("miembroJurado.txt");
         int id_dueno = lista_JURADOS.size()+1;
+        System.out.println(id_dueno);
         try{
             String nombre= textNombre.getText();
             String apellido= textApellido.getText();
@@ -78,8 +79,11 @@ public class MiembroJuradController implements Initializable {
             if (nombre!=null ||apellido!=null||telefono!=null||email!=null||descripcion!=null
                    ){
 //                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){|| nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""
-                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||descripcion!=""){
-                    MiembroJurado persona_Jurado = new MiembroJurado(id_dueno, nombre, apellido, telefono, email, descripcion);    
+                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||descripcion!=""){                
+//MiembroJurado( int id,String perfil, String nombres, 
+            //String apellidos, String telefono, String email) 
+                    
+                    MiembroJurado persona_Jurado = new MiembroJurado(id_dueno, descripcion,nombre, apellido, telefono, email);    
                     persona_Jurado.saveFile("miembroJurado.txt");
                     limpiar(event);
                     Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );

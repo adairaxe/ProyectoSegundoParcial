@@ -100,6 +100,8 @@ public class MiembroJurado extends Persona {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] datos = line.split("\\|"); 
                 String[] datos2 = datos[1].split(",");
+                //MiembroJurado( int id,String perfil, String nombres, 
+            //String apellidos, String telefono, String email) 
                 MiembroJurado v= new MiembroJurado(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5]);
                 miembroJurado.add(v);
             }
@@ -141,7 +143,7 @@ public class MiembroJurado extends Persona {
          try{
             FileWriter writer= new FileWriter(ruta, true);
             BufferedWriter bufferedWriter= new BufferedWriter(writer);
-            bufferedWriter.write(this.getId());
+            bufferedWriter.write(String.valueOf(this.getId()));
             bufferedWriter.write("|");
             bufferedWriter.write(this.getPerfil());
             bufferedWriter.write("|");
@@ -153,10 +155,10 @@ public class MiembroJurado extends Persona {
             bufferedWriter.write("|");
             bufferedWriter.write(this.getEmail());
             bufferedWriter.write("|");
-            for (Evaluacion m: this.getEvaluaciones()){
-                bufferedWriter.write(m.getId());
-                bufferedWriter.write(";");
-            }
+//            for (Evaluacion m: this.getEvaluaciones()){
+//                bufferedWriter.write(m.getId());
+//                bufferedWriter.write(";");
+//            }
             bufferedWriter.newLine();
             bufferedWriter.close();
         } catch(Exception e) {
@@ -181,7 +183,7 @@ public class MiembroJurado extends Persona {
             FileWriter writer= new FileWriter(nombre);
             BufferedWriter bufferedWriter= new BufferedWriter(writer);
             for (   MiembroJurado v:  miembroJurado ){
-                bufferedWriter.write(v.getId());
+                bufferedWriter.write(String.valueOf(v.getId() ));
                 bufferedWriter.write("|");
                 bufferedWriter.write(v.getPerfil());
                 bufferedWriter.write("|");
@@ -193,10 +195,10 @@ public class MiembroJurado extends Persona {
                 bufferedWriter.write("|");
                 bufferedWriter.write(v.getEmail());
                 bufferedWriter.write("|");
-                for (Evaluacion m: v.getEvaluaciones()){
-                    bufferedWriter.write(m.getId());
-                    bufferedWriter.write(";");
-                }
+//                for (Evaluacion m: v.getEvaluaciones()){
+//                    bufferedWriter.write(m.getId());
+//                    bufferedWriter.write(";");
+//                }
                 bufferedWriter.newLine();
             }
             bufferedWriter.close();

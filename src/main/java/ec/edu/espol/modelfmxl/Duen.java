@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -162,13 +163,16 @@ public class Duen extends Persona{
     
     public static ArrayList<Duen> readFile(String nombre){
         ArrayList<Duen> dueño= new ArrayList<>();
-        try {
-            FileReader reader = new FileReader(nombre);
-            BufferedReader bufferedReader = new BufferedReader(reader);
+        try (
+                FileReader reader = new FileReader(nombre);
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                ){
+            
+            
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] datos = line.split("\\|"); 
-                String[] datos2 = datos[1].split(";");
+                //String[] datos2 = datos[1].split(";");
                 Duen duen= new Duen(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5]);
                 dueño.add(duen);
             }
