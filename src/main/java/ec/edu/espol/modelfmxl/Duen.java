@@ -17,18 +17,18 @@ public class Duen extends Persona{
     private ArrayList<Mascota> mascotas;
     
     public Duen(int id, String nombre, String apellidos, String telefono, String email, String direccion){
-        super(nombre,apellidos,telefono,email);
-        this.id = id;
+//        this.id = id;
+        super(id,nombre,apellidos,telefono,email);
         this.direccion=direccion;
-        this.mascotas=new ArrayList<>();
+//        this.mascotas=new ArrayList<>();
     }
-    
-    public Duen(int id, String nombre, String apellidos, String telefono, String email, String direccion, ArrayList<Mascota> mascotas){
-        super(nombre,apellidos,telefono,email);
-        this.id = id;
-        this.direccion=direccion;
-        this.mascotas=mascotas;
-    }
+//    
+//    public Duen(int id, String nombre, String apellidos, String telefono, String email, String direccion, ArrayList<Mascota> mascotas){
+//        super(nombre,apellidos,telefono,email);
+//        this.id = id;
+//        this.direccion=direccion;
+//        this.mascotas=mascotas;
+//    }
 
     public int getId() {
         return id;
@@ -67,11 +67,11 @@ public class Duen extends Persona{
         sb.append(", direccion= ");
         sb.append(this.getDireccion());
         sb.append(",    Mascotas= ");
-        for (Mascota i: this.mascotas){
-            sb.append(i.toString());
-            if(this.mascotas.size()!=this.mascotas.size()-1)
-                sb.append(";");               
-            }
+//        for (Mascota i: this.mascotas){
+//            sb.append(i.toString());
+//            if(this.mascotas.size()!=this.mascotas.size()-1)
+//                sb.append(";");               
+//            }
         sb.append("]");
         return sb.toString();
     }
@@ -110,10 +110,10 @@ public class Duen extends Persona{
             bufferedWriter.write("|");
             bufferedWriter.write((String.valueOf(this.getDireccion())));
             //bufferedWriter.write("|");
-            for (Mascota m: this.getMascotas()){
-                bufferedWriter.write((String.valueOf( this.getId())));
-                bufferedWriter.write(";");
-            }
+//            for (Mascota m: this.getMascotas()){
+//                bufferedWriter.write((String.valueOf( this.getId())));
+//                bufferedWriter.write(";");
+//            }
             bufferedWriter.newLine();
             bufferedWriter.close();
         } catch(Exception e) {
@@ -140,10 +140,10 @@ public class Duen extends Persona{
                 bufferedWriter.write("|");
                 bufferedWriter.write( (String.valueOf(v.getDireccion())));
                 //bufferedWriter.write("|");
-                for (Mascota m: v.getMascotas()){
-                    bufferedWriter.write((String.valueOf( m.getId())));
-                    bufferedWriter.write(";");
-                }
+//                for (Mascota m: v.getMascotas()){
+//                    bufferedWriter.write((String.valueOf( m.getId())));
+//                    bufferedWriter.write(";");
+//                }
                 
                 bufferedWriter.newLine();
             }
@@ -166,14 +166,17 @@ public class Duen extends Persona{
         try (
                 FileReader reader = new FileReader(nombre);
                 BufferedReader bufferedReader = new BufferedReader(reader);
-                ){
-            
+                )
+        
+        {
             
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] datos = line.split("\\|"); 
                 //String[] datos2 = datos[1].split(";");
-                Duen duen= new Duen(Integer.parseInt(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5]);
+                int idDueño=Integer.parseInt(datos[0])+0;
+                Duen duen= new Duen(idDueño,datos[1],datos[2],datos[3],datos[4],datos[5]);
+//                System.out.println(duen.toString());
                 dueño.add(duen);
             }
             reader.close();

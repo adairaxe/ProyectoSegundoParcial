@@ -59,6 +59,7 @@ public class EvaluacionController {
         //Evaluacion(int id, int idMiembroJurado, int idInscripcion, int idCriterio, int nota)
         int idEvaluacion = lista_evaluaciones.size()+1;
         int idMiembroJurado = Util.examinarIdMiembroJurado(txCorreo.getText());
+        System.out.println("idMiembroJurado"+idMiembroJurado);
         int idInscripcion = Util.examinarIdInscripcion(Integer.parseInt(txidInscripcion.getText()));
         int idCriterio = Util.examinarCriterio(Integer.parseInt(txidCriterio.getText())).getId();
         int nota = Integer.parseInt(txNota.getText());
