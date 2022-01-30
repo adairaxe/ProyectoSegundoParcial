@@ -29,40 +29,83 @@
          </children>
       </HBox>
    </bottom>
-   <left>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="235.0" prefWidth="158.0" spacing="20.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" minHeight="-Infinity" prefWidth="143.0" style="-fx-background-color: v;" text="Nombre:">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" prefWidth="143.0" style="-fx-background-color: d;" text="Descripción">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <Label alignment="CENTER" prefWidth="143.0" style="-fx-background-color: v;" text="Puntaje Máximo">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-         </children>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-      </VBox>
-   </left>
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="433.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
+      <VBox fx:id="vdatos" prefHeight="232.0" prefWidth="459.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txNombre" />
-            <TextField fx:id="txDescripcion" />
-            <TextField fx:id="txPuntajeMax" />
+            <HBox prefHeight="33.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" minHeight="-Infinity" prefHeight="20.0" prefWidth="167.0" style="-fx-background-color: v;" text="Nombre del Concurso">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtConcurso" prefHeight="25.0" prefWidth="213.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="cerrar" prefHeight="33.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" minHeight="-Infinity" prefHeight="20.0" prefWidth="167.0" style="-fx-background-color: v;" text="Cantidad de criterios: ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCantidad" prefHeight="25.0" prefWidth="213.0" />
+                  <VBox fx:id="eliminar" prefHeight="33.0" prefWidth="141.0">
+                     <children>
+                        <Button fx:id="btnEmpezarcontar" mnemonicParsing="false" onAction="#Contador" prefHeight="23.0" prefWidth="131.0" text="Empeza Contador" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" minHeight="-Infinity" prefHeight="20.0" prefWidth="167.0" style="-fx-background-color: v;" text="Criterios Registrados: ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtcontador" alignment="CENTER" minHeight="-Infinity" prefHeight="20.0" prefWidth="167.0" style="-fx-background-color: v;" text="0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" minHeight="-Infinity" prefHeight="20.0" prefWidth="167.0" style="-fx-background-color: v;" text="Nombre: ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNombre" prefHeight="25.0" prefWidth="213.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" minHeight="-Infinity" prefHeight="20.0" prefWidth="167.0" style="-fx-background-color: v;" text="Descripcion">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDescripcion" prefHeight="25.0" prefWidth="213.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" minHeight="-Infinity" prefHeight="20.0" prefWidth="167.0" style="-fx-background-color: v;" text="Puntaje maximo">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPuntaje" prefHeight="25.0" prefWidth="213.0" />
+                  <VBox fx:id="hvGuardarCriterio" prefHeight="33.0" prefWidth="140.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#guardarCriterio" prefHeight="25.0" prefWidth="130.0" text="Guardar Criterio" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </center>
