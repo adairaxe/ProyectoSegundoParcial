@@ -54,7 +54,7 @@ public class Evaluacion {
         return this.id;
     }
 
-    public double getNota() {
+    public int getNota() {
         return this.nota;
     }
 
@@ -147,22 +147,33 @@ public class Evaluacion {
     
     public static ArrayList<Evaluacion> readFile(String nomfile){
     ArrayList<Evaluacion> evaluaciones = new ArrayList<>();
-    try (
+    System.out.println("estasaqui1");
+    try {
         FileReader reader = new FileReader(nomfile);
         BufferedReader br = new BufferedReader(reader);
-        )
-    {
+        System.out.println("estasaqui2");
+    
         String line;
         while ((line = br.readLine()) != null) {
+            System.out.println("estasaqui3");
             String[] datos = line.split("\\|"); 
             //Evaluacion(int id, int idMiembroJurado, int idInscripcion, int idCriterio, int nota)
-            Evaluacion evaluacion = new Evaluacion(Integer.parseInt(datos[0]),Integer.parseInt(datos[5]), Integer.parseInt(datos[1]), Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),Integer.parseInt(datos[4]));                
+           // Evaluacion(int id,int idMascota, int idMiembroJurado, int idInscripcion, int idCriterio, int nota) 
+           for (String n:datos){
+               System.out.println(n);
+           }
+//            Evaluacion evaluacion = new Evaluacion(Integer.parseInt(datos[0]),);
+            Evaluacion evaluacion = new Evaluacion(Integer.parseInt(datos[0]),Integer.parseInt(datos[4]), 
+                    Integer.parseInt(datos[1]), Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),Integer.parseInt(datos[1]));                
+            System.out.println("estasaqui4");
             evaluaciones.add(evaluacion);
+            System.out.println("estasaqui5");
         }
         reader.close();
     }catch (Exception e){
         System.out.println("EL ARCHIVO NO EXISTE");;
     }
+    System.out.println("estasaqui6");
     return evaluaciones;
     
     }
