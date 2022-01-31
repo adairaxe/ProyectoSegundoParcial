@@ -1,3 +1,0 @@
-1|Adair|Abrigo|0989998043|adair@hotmail.com|duran
-2|Jenniffer|Pacheco|0985647830|jenn@hotmail.com|sauces
-3|Angel|Loaiza|0985748479|angelcux@hotmail.com|santa rosa
