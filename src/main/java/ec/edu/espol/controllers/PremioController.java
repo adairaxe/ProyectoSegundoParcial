@@ -83,7 +83,7 @@ public class PremioController implements Initializable {
                 Premio premio = new Premio(id_premio,Integer.parseInt(lugar),descripcion,idConcurso);    
                 premio.saveFile("premio.txt");
                 limpiar(event);
-                Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                Alert a5= new Alert(Alert.AlertType.INFORMATION, "El criterio asociado al concurso con Id: "+ idConcurso +" se ha registrado con exito" );
                 a5.show();
             }
         }catch(Exception e){

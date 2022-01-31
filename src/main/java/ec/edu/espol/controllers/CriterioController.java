@@ -83,7 +83,7 @@ public class CriterioController {
                 System.out.println(criterio);
                 
                 criterio.saveFile("criterios.txt");
-                alerta = new Alert(AlertType.CONFIRMATION,"Su criterio ha sido creado con exito");
+                alerta = new Alert(AlertType.INFORMATION,"El criterio "+ nombreCriterio +" ha sido creado con exito");
                 alerta.show();
                 
                 txNombreConcurso.setText("");

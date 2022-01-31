@@ -103,10 +103,10 @@ public class MascotaController implements Initializable {
                     if (existenteID==true){
                         mascota1.saveFile("mascotas.txt");
                         limpiar(event);
-                        Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                        Alert a5= new Alert(Alert.AlertType.INFORMATION, "Su mascota "+ nombre +" se ha registrado con exito" );
                         a5.show();
                     }else{
-                        Alert a4= new Alert(Alert.AlertType.ERROR, "El ID de Dueño no existe" );
+                        Alert a4= new Alert(Alert.AlertType.ERROR, "¿Ya se registro como dueño?" );
                         a4.show();
                         txtIDDueño.clear();
                     }

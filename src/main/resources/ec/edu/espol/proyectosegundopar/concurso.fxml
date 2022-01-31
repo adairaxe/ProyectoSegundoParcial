@@ -16,12 +16,12 @@
             <Font name="System Bold" size="24.0" />
          </font>
          <BorderPane.margin>
-            <Insets top="30.0" />
+            <Insets top="15.0" />
          </BorderPane.margin>
       </Label>
    </top>
    <left>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="187.0" spacing="17.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="198.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" style="-fx-background-color: verde;" text="Nombre:">
                <opaqueInsets>
@@ -30,16 +30,19 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="156.0" style="-fx-background-color: verde;" text="Fecha:">
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="156.0" style="-fx-background-color: verde;" text="Fecha del concurso:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" style="-fx-background-color: verde;" text="Fecha de inscripción:">
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" style="-fx-background-color: verde;" text="Fecha de inicio:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Label alignment="CENTER" prefHeight="20.0" prefWidth="179.0" style="-fx-background-color: verde;" text="Fecha cierre de inscripción:">
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="179.0" style="-fx-background-color: verde;" text="Fecha cierre:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
@@ -53,12 +56,15 @@
                </font></Label>
          </children>
          <BorderPane.margin>
-            <Insets />
+            <Insets left="20.0" top="20.0" />
          </BorderPane.margin>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
       </VBox>
    </left>
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="397.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="297.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="txNombre" prefHeight="21.0" prefWidth="419.0" />
             <TextField fx:id="txFecha" promptText="YYYY-MM-DD" />
@@ -67,6 +73,12 @@
             <TextField fx:id="txTema" />
             <TextField fx:id="txCosto" />
          </children>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
       </VBox>
    </center>
    <bottom>

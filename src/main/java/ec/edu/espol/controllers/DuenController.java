@@ -85,7 +85,7 @@ public class DuenController implements Initializable {
                     Duen persona_duen = new Duen(id_dueno, nombre, apellido, telefono, email, direccion);    
                     persona_duen.saveFile("duenos.txt");
                     limpiar(event);
-                    Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                    Alert a5= new Alert(Alert.AlertType.INFORMATION, "Se ha registrado con exito. Su id es: " + id_dueno);
                     a5.show();
                 }
             }

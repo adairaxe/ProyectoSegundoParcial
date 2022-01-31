@@ -47,6 +47,12 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </Label>
    </top>
 </BorderPane>

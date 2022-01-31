@@ -23,14 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author USER
- */
-//<<<<<<< HEAD:src/main/java/ec/edu/espol/controllers/PruebaController.java
-//public class PruebaController implements Initializable {
-//=======
+
 public class MiembroJuradController implements Initializable {
 
     @FXML
@@ -43,15 +36,13 @@ public class MiembroJuradController implements Initializable {
     private TextField textTelefono;
     @FXML
     private TextField textDescripcion;
-//>>>>>>> d3b146ba984b19116aee9502f75314c585912069:src/main/java/ec/edu/espol/controllers/MiembroJuradController.java
+
     @FXML
     private Button btnguardar;
     @FXML
     private TextField textEmail;
 
-    /**
-     * Initializes the controller class.
-     */
+
 //    @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -80,13 +71,13 @@ public class MiembroJuradController implements Initializable {
                    ){
 //                if (nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""){|| nombre!="" ||apellido!=""||telefono!=""||email!=""||direccion!=""
                 if (nombre!="" ||apellido!=""||telefono!=""||email!=""||descripcion!=""){                
-//MiembroJurado( int id,String perfil, String nombres, 
-            //String apellidos, String telefono, String email) 
+
+                    //MiembroJurado( int id,String perfil, String nombres, String apellidos, String telefono, String email) 
                     
                     MiembroJurado persona_Jurado = new MiembroJurado(id_dueno, descripcion,nombre, apellido, telefono, email);    
                     persona_Jurado.saveFile("miembroJurado.txt");
                     limpiar(event);
-                    Alert a5= new Alert(Alert.AlertType.INFORMATION, "Mascota registrada con exito" );
+                    Alert a5= new Alert(Alert.AlertType.INFORMATION, "Ha sido registrado con exito, su Id es: "+ id_dueno);
                     a5.show();
                 }
 

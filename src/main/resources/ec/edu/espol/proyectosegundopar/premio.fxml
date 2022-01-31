@@ -21,9 +21,9 @@
       </Label>
    </top>
    <left>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="168.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="175.0" spacing="30.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="144.0" style="-fx-background-color: v;" text="Nombre Concurso">
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="170.0" style="-fx-background-color: v;" text="Nombre del Concurso:">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -45,12 +45,12 @@
                </font></Label>
          </children>
          <BorderPane.margin>
-            <Insets />
+            <Insets left="10.0" />
          </BorderPane.margin>
       </VBox>
    </left>
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="323.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="txtIdConcurso" />
             <TextField fx:id="txLugar" promptText="########" />
