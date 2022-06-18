@@ -143,17 +143,15 @@ public class Concurso {
         }
         */
          try 
-           (
-            FileWriter writer = new FileWriter(nomfile, true);
-            BufferedWriter  bw  = new BufferedWriter (writer);   
-            )    
-            {
+           (FileWriter writer = new FileWriter(nomfile, true);
+            BufferedWriter  bw  = new BufferedWriter (writer);)
+        {
             bw.write(this.id + "|"+ this.nombre+ "|" + this.fecha + "|"+ this.fechaInscripcion+ "|"+ this.fechaCierreInscripcion+ "|"+ this.tematica+ "|"+ this.costo);
          
             bw.newLine();
-       }catch (IOException e){
-           System.out.println(e.getMessage());;
-       }
+        }catch (IOException e){
+            System.out.println(e.getMessage());;
+        }
         
     }
     public static void saveFile(ArrayList<Concurso> concursos, String nomfile){
